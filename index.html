@@ -15,13 +15,13 @@
         #login-box { background: #15161d; padding: 35px; border-radius: 16px; box-shadow: 0 10px 30px rgba(0,0,0,0.8); text-align: center; max-width: 420px; margin: auto; border: 1px solid #23242e; }
         #login-box h2 { margin-bottom: 10px; color: #f1f1f1; font-size: 22px; }
         #login-box p { color: #8c92a4; font-size: 14px; margin-bottom: 20px; }
-        input[type="text"] { width: 100%; padding: 14px; margin-bottom: 20px; border: 1px solid #2a2b36; border-radius: 8px; background: #0f1015; color: #fff; font-size: 16px; outline: none; transition: 0.3s; }
+        input[type="text"] { width: 100%; padding: 14px; margin-bottom: 15px; border: 1px solid #2a2b36; border-radius: 8px; background: #0f1015; color: #fff; font-size: 16px; outline: none; transition: 0.3s; text-align: center; letter-spacing: 1px; }
         input[type="text"]:focus { border-color: #007bff; }
         button { padding: 14px 25px; background: #007bff; color: white; border: none; border-radius: 8px; cursor: pointer; font-size: 16px; font-weight: bold; width: 100%; transition: 0.3s; }
         button:hover { background: #0056b3; }
         button:disabled { background: #444; cursor: not-allowed; }
-        .msg { margin-top: 15px; font-size: 14px; }
-        .error { color: #ff4d4d; }
+        .msg { margin-top: 15px; font-size: 14px; min-height: 20px; }
+        .error { color: #ff4d4d; font-weight: bold; }
         .success { color: #ffc107; font-weight: bold; }
 
         /* واجهة المعرض والمجلدات */
@@ -47,7 +47,7 @@
         .card:active { transform: scale(0.97); }
         
         .card-thumb { position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; background: #1f2029; }
-        .card-overlay { position: absolute; bottom: 0; left: 0; width: 100%; background: linear-gradient(to top, rgba(0,0,0,0.8), transparent); padding: 8px 6px; display: flex; justify-content: space-between; align-items: flex-end; }
+        .card-overlay { position: absolute; bottom: 0; left: 0; width: 100%; background: linear-gradient(to top, rgba(0,0,0,0.8), transparent); padding: 8px 6px; display: flex; justify-content: space-between; align-items: flex-end; z-index: 2; }
         
         .card-duration { font-size: 11px; color: #fff; font-weight: bold; text-shadow: 0 1px 2px rgba(0,0,0,0.9); background: rgba(0,0,0,0.4); padding: 2px 4px; border-radius: 4px; }
         .card-title { font-size: 10px; color: #ccc; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 70%; }
@@ -149,14 +149,21 @@
                     method: "POST",
                     body: JSON.stringify({ code: code, deviceId: getDeviceId() })
                 });
-                const result = await response.json();
+                
+                const responseText = await response.text();
+                let result;
+                try {
+                    result = JSON.parse(responseText);
+                } catch (e) {
+                    result = { status: "error", message: "استجابة غير صالحة من السيرفر" };
+                }
 
                 if (result.status === "success") {
                     sessionStorage.setItem("device_logged_in", "true");
                     showApp();
                 } else {
                     msg.className = "msg error";
-                    msg.textContent = result.message;
+                    msg.textContent = result.message || "الكود غير صحيح!";
                     loginBtn.disabled = false;
                 }
             } catch (error) {
@@ -369,4 +376,30 @@
 
                 let mins = Math.floor(video.duration / 60);
                 let secs = Math.floor(video.duration % 60);
-                
+                let timeStr = (mins < 10 ? "0" : "") + mins + ":" + (secs < 10 ? "0" : "") + secs;
+                let durSpan = cardElement.querySelector(`#dur-${fileName}`);
+                if (durSpan) durSpan.textContent = timeStr;
+            };
+        }
+
+        function playVideo(title, url) {
+            document.getElementById('app-content').style.display = "none";
+            document.getElementById('player-container').style.display = "block";
+            document.getElementById('video-title').textContent = title;
+            
+            let videoSource = document.getElementById('video-source');
+            videoSource.src = url;
+            let videoElement = document.getElementById('main-video');
+            videoElement.load();
+        }
+
+        function closePlayer() {
+            let videoElement = document.getElementById('main-video');
+            videoElement.pause();
+            document.getElementById('player-container').style.display = "none";
+            document.getElementById('app-content').style.display = "block";
+        }
+    </script>
+
+</body>
+</html>
