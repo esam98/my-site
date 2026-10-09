@@ -24,11 +24,16 @@
         .error { color: #ff4d4d; }
         .success { color: #ffc107; font-weight: bold; }
 
-        /* واجهة المعرض والفيديوهات */
+        /* واجهة المعرض والمجلدات */
         #app-content { display: none; }
-        .header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; border-bottom: 1px solid #23242e; padding-bottom: 12px; }
-        .header h1 { font-size: 18px; color: #fff; font-weight: 500; }
-        .logout-btn { background: #dc3545; width: auto; padding: 6px 14px; font-size: 12px; border-radius: 6px; }
+        .header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; border-bottom: 1px solid #23242e; padding-bottom: 12px; gap: 10px; }
+        .header-title-box { display: flex; align-items: center; gap: 10px; overflow: hidden; }
+        .header h1 { font-size: 16px; color: #fff; font-weight: 500; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+        
+        .header-btns { display: flex; gap: 6px; flex-shrink: 0; }
+        .action-btn { background: #333; color: #fff; border: none; padding: 6px 12px; font-size: 12px; border-radius: 6px; cursor: pointer; transition: 0.2s; }
+        .action-btn:hover { background: #444; }
+        .logout-btn { background: #dc3545; }
         .logout-btn:hover { background: #b02a37; }
 
         /* شبكة المعرض (Gallery Grid) */
@@ -37,7 +42,7 @@
             .grid-container { grid-template-columns: repeat(3, 1fr); gap: 6px; }
         }
 
-        /* تصميم بطاقة الفيديو مثل الاستوديو */
+        /* تصميم بطاقة الفيديو */
         .card { background: #15161d; border-radius: 6px; overflow: hidden; position: relative; aspect-ratio: 9/12; cursor: pointer; display: flex; flex-direction: column; justify-content: flex-end; border: 1px solid #23242e; transition: transform 0.1s; }
         .card:active { transform: scale(0.97); }
         
@@ -75,8 +80,13 @@
         <!-- 2. واجهة المعرض والمجلدات -->
         <div id="app-content">
             <div class="header">
-                <h1 id="path-title">📁 الملفات الرئيسية</h1>
-                <button class="logout-btn" onclick="logout()">خروج</button>
+                <div class="header-title-box">
+                    <h1 id="path-title">📁 الملفات الرئيسية</h1>
+                </div>
+                <div class="header-btns">
+                    <button id="back-nav-btn" class="action-btn hidden" onclick="goBackHierarchy()">رجوع</button>
+                    <button class="action-btn logout-btn" onclick="logout()">خروج</button>
+                </div>
             </div>
             <div id="items-grid" class="grid-container">
                 <!-- محتوى المعرض -->
@@ -90,7 +100,7 @@
                 <source id="video-source" src="" type="video/mp4">
             </video>
             <br>
-            <button class="back-btn" onclick="goBack()">رجوع للمعرض</button>
+            <button class="back-btn" onclick="closePlayer()">رجوع للمعرض</button>
         </div>
     </div>
 
@@ -167,9 +177,34 @@
             location.reload();
         }
 
+        function updateBackButtonVisibility() {
+            let backBtn = document.getElementById('back-nav-btn');
+            if (currentPath !== "" || (currentZipData !== null && currentInternalPath !== "")) {
+                backBtn.classList.remove('hidden');
+            } else {
+                backBtn.classList.add('hidden');
+            }
+        }
+
+        function goBackHierarchy() {
+            if (currentZipData !== null) {
+                if (currentInternalPath === "") {
+                    currentZipData = null;
+                    loadFolderContent(currentPath);
+                } else {
+                    let parentPath = currentInternalPath.substring(0, currentInternalPath.lastIndexOf('/', currentInternalPath.length - 2) + 1);
+                    renderZipFolder(parentPath);
+                }
+            } else {
+                let parentPath = currentPath.substring(0, currentPath.lastIndexOf('/'));
+                loadFolderContent(parentPath);
+            }
+        }
+
         async function loadFolderContent(path) {
             currentPath = path;
             currentZipData = null;
+            updateBackButtonVisibility();
             const grid = document.getElementById('items-grid');
             const pathTitle = document.getElementById('path-title');
             
@@ -182,16 +217,6 @@
                 const items = await res.json();
 
                 grid.innerHTML = "";
-
-                if (path !== "") {
-                    let parentPath = path.substring(0, path.lastIndexOf('/'));
-                    let backCard = document.createElement('div');
-                    backCard.className = "folder-card";
-                    backCard.style.gridColumn = "1 / -1";
-                    backCard.innerHTML = `<div class="folder-icon">🔙</div><div class="folder-title">رجوع للخلف</div>`;
-                    backCard.onclick = () => loadFolderContent(parentPath);
-                    grid.appendChild(backCard);
-                }
 
                 if (!Array.isArray(items) || items.length === 0) {
                     if (path === "") {
@@ -245,23 +270,11 @@
 
         async function renderZipFolder(internalPath) {
             currentInternalPath = internalPath;
+            updateBackButtonVisibility();
             const grid = document.getElementById('items-grid');
             const pathTitle = document.getElementById('path-title');
             grid.innerHTML = "";
             pathTitle.textContent = `Videos ${internalPath ? ' / ' + internalPath : ''}`;
-
-            // زر الرجوع
-            let backCard = document.createElement('div');
-            backCard.className = "folder-card";
-            backCard.style.gridColumn = "1 / -1";
-            backCard.innerHTML = `<div class="folder-icon">🔙</div><div class="folder-title">رجوع للخلف</div>`;
-            if (internalPath === "") {
-                backCard.onclick = () => loadFolderContent(currentPath);
-            } else {
-                let parentPath = internalPath.substring(0, internalPath.lastIndexOf('/', internalPath.length - 2) + 1);
-                backCard.onclick = () => renderZipFolder(parentPath);
-            }
-            grid.appendChild(backCard);
 
             let foldersSet = new Set();
             let filesMap = {};
@@ -314,7 +327,6 @@
 
                 grid.appendChild(card);
 
-                // تحميل محتوى الملف واستخراج الغلاف والوقت
                 let fileData = currentZipData.files[fullZipPath];
                 let blob = await fileData.async("blob");
                 let blobUrl = URL.createObjectURL(blob);
@@ -332,13 +344,12 @@
             }
         }
 
-        // استخراج الغلاف والمدة الزمنية من الفيديو
         function extractVideoThumb(videoUrl, cardElement, fileName) {
             const video = document.createElement('video');
             video.src = videoUrl;
             video.muted = true;
             video.playsInline = true;
-            video.currentTime = 1.0; // التقاط لقطة من الثانية الأولى
+            video.currentTime = 1.0;
 
             video.onloadeddata = () => {
                 video.currentTime = 0.5;
@@ -356,34 +367,6 @@
                 img.src = canvas.toDataURL('image/jpeg', 0.7);
                 cardElement.insertBefore(img, cardElement.firstChild);
 
-                // حساب المدة
                 let mins = Math.floor(video.duration / 60);
                 let secs = Math.floor(video.duration % 60);
-                let timeStr = (mins < 10 ? "0" : "") + mins + ":" + (secs < 10 ? "0" : "") + secs;
-                let durSpan = cardElement.querySelector(`#dur-${fileName}`);
-                if (durSpan) durSpan.textContent = timeStr;
-            };
-        }
-
-        function playVideo(title, url) {
-            document.getElementById('app-content').style.display = "none";
-            document.getElementById('player-container').style.display = "block";
-            document.getElementById('video-title').textContent = title;
-            
-            let videoSource = document.getElementById('video-source');
-            videoSource.src = url;
-            let videoElement = document.getElementById('main-video');
-            videoElement.load();
-        }
-
-        function goBack() {
-            let videoElement = document.getElementById('main-video');
-            videoElement.pause();
-            document.getElementById('player-container').style.display = "none";
-            document.getElementById('app-content').style.display = "block";
-            renderZipFolder(currentInternalPath);
-        }
-    </script>
-
-</body>
-</html>
+                
