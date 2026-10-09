@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>منصتي الرقمية الحصرية</title>
+    <!-- مكتبة فك الملفات المضغوطة JSZip -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
     <style>
         * { box-sizing: border-box; margin: 0; padding: 0; }
         body { font-family: 'Segoe UI', Tahoma, sans-serif; background-color: #0f1015; color: #fff; min-height: 100vh; display: flex; justify-content: center; align-items: center; }
@@ -46,6 +48,7 @@
 <body>
 
     <div class="container">
+        <!-- 1. شاشة تسجيل الدخول -->
         <div id="login-box">
             <h2>تسجيل الدخول للمنصة</h2>
             <p>أدخل الكود الخاص لجهازك للمتابعة:</p>
@@ -54,15 +57,18 @@
             <div id="msg" class="msg"></div>
         </div>
 
+        <!-- 2. واجهة تصفح الملفات والمجلدات -->
         <div id="app-content">
             <div class="header">
                 <h1 id="path-title">📁 الملفات الرئيسية</h1>
                 <button class="logout-btn" onclick="logout()">خروج</button>
             </div>
             <div id="items-grid" class="grid-container">
-                </div>
+                <!-- سيتم تعبئة الملفات تلقائياً هنا -->
+            </div>
         </div>
 
+        <!-- 3. مشغل الفيديو أو عرض الملف -->
         <div id="player-container">
             <h2 id="video-title" style="margin-bottom: 15px; font-size: 18px;">مشاهدة الفيديو</h2>
             <video id="main-video" controls controlsList="nodownload" oncontextmenu="return false;">
@@ -75,14 +81,14 @@
     </div>
 
     <script>
-        // رابط جوجل Apps Script الخاص بك
         const WEB_APP_URL = "https://script.google.com/macros/s/AKfycbwgjvHsbhPbpbtRyrFq1mpqKU3tgneQR2kyWyyXXdkjOZ2cyhLb_L8AJMdYVk8AnzqMUg/exec";
-
-        // تم ربط الحساب والمستودع الخاص بك هنا
         const GITHUB_USER = "esam98";
         const GITHUB_REPO = "my-site";
         
         let currentPath = ""; 
+        let currentZipData = null; // تخزين بيانات الملف المضغوط المفكوك
+        let currentZipName = "";
+        let currentInternalPath = "";
 
         window.onload = function() {
             if (sessionStorage.getItem("device_logged_in") === "true") {
@@ -147,8 +153,10 @@
             location.reload();
         }
 
+        // جلب المحتوى من جيت هاب
         async function loadFolderContent(path) {
             currentPath = path;
+            currentZipData = null; // إعادة تعيين
             const grid = document.getElementById('items-grid');
             const pathTitle = document.getElementById('path-title');
             
@@ -173,7 +181,7 @@
 
                 if (!Array.isArray(items) || items.length === 0) {
                     if (path === "") {
-                        grid.innerHTML = "<p style='color:#8c92a4; grid-column: 1/-1; text-align:center;'>المستودع فارغ حالياً. ارفع مجلدات أو فيديوهات!</p>";
+                        grid.innerHTML = "<p style='color:#8c92a4; grid-column: 1/-1; text-align:center;'>المستودع فارغ. ارفع ملفاتك أو ملفات مضغوطة (ZIP) هنا!</p>";
                     }
                     return;
                 }
@@ -184,11 +192,16 @@
                     let card = document.createElement('div');
                     card.className = "card";
 
+                    let ext = item.name.split('.').pop().toLowerCase();
+
                     if (item.type === "dir") {
                         card.innerHTML = `<div class="card-icon">📁</div><div class="card-title">${item.name}</div>`;
                         card.onclick = () => loadFolderContent(item.path);
+                    } else if (ext === "zip") {
+                        // إذا كان ملف مضغوط ZIP
+                        card.innerHTML = `<div class="card-icon">📦</div><div class="card-title">${item.name}</div>`;
+                        card.onclick = () => openZipFile(item.name, item.download_url);
                     } else if (item.type === "file") {
-                        let ext = item.name.split('.').pop().toLowerCase();
                         let icon = "📄";
                         if (['mp4', 'mkv', 'webm', 'mov'].includes(ext)) icon = "🎬";
                         else if (['jpg', 'jpeg', 'png', 'gif'].includes(ext)) icon = "🖼️";
@@ -205,7 +218,102 @@
                 });
 
             } catch (err) {
-                grid.innerHTML = "<p style='color:#ff4d4d; grid-column: 1/-1; text-align:center;'>فشل في جلب الملفات. تأكد من إعدادات المستودع.</p>";
+                grid.innerHTML = "<p style='color:#ff4d4d; grid-column: 1/-1; text-align:center;'>فشل في جلب الملفات.</p>";
+            }
+        }
+
+        // فتح وفك الملف المضغوط تلقائياً داخل الموقع
+        async function openZipFile(name, downloadUrl) {
+            const grid = document.getElementById('items-grid');
+            const pathTitle = document.getElementById('path-title');
+            grid.innerHTML = "<p style='color:#8c92a4; grid-column: 1/-1; text-align:center;'>⏳ جاري تحميل وفك الملف المضغوط...</p>";
+            pathTitle.textContent = `📦 / ${name}`;
+
+            try {
+                const response = await fetch(downloadUrl);
+                const blob = await response.blob();
+                const zip = new JSZip();
+                currentZipData = await zip.loadAsync(blob);
+                currentZipName = name;
+                renderZipFolder("");
+            } catch (err) {
+                grid.innerHTML = "<p style='color:#ff4d4d; grid-column: 1/-1; text-align:center;'>فشل في قراءة الملف المضغوط.</p>";
+            }
+        }
+
+        // عرض محتويات الملف المضغوط بشكل مجلدات وفيديوهات
+        function renderZipFolder(internalPath) {
+            currentInternalPath = internalPath;
+            const grid = document.getElementById('items-grid');
+            const pathTitle = document.getElementById('path-title');
+            grid.innerHTML = "";
+            pathTitle.textContent = `📦 ${currentZipName} ${internalPath ? ' / ' + internalPath : ''}`;
+
+            // زر الرجوع
+            let backCard = document.createElement('div');
+            backCard.className = "card";
+            backCard.innerHTML = `<div class="card-icon">🔙</div><div class="card-title">رجوع للخلف</div>`;
+            if (internalPath === "") {
+                backCard.onclick = () => loadFolderContent(currentPath);
+            } else {
+                let parentPath = internalPath.substring(0, internalPath.lastIndexOf('/', internalPath.length - 2) + 1);
+                backCard.onclick = () => renderZipFolder(parentPath);
+            }
+            grid.appendChild(backCard);
+
+            let foldersSet = new Set();
+            let filesMap = {};
+
+            Object.keys(currentZipData.files).forEach(filename => {
+                if (filename.startsWith('__MACOSX/') || filename.includes('/._')) return;
+                if (!filename.startsWith(internalPath)) return;
+                
+                let relativePath = filename.substring(internalPath.length);
+                if (relativePath === "" || relativePath === "/") return;
+
+                let parts = relativePath.split('/');
+                let firstPart = parts[0];
+
+                if (parts.length > 1 || currentZipData.files[filename].dir) {
+                    if (firstPart) foldersSet.add(firstPart);
+                } else {
+                    filesMap[firstPart] = filename;
+                }
+            });
+
+            // عرض المجلدات داخل الـ Zip
+            foldersSet.forEach(folderName => {
+                let card = document.createElement('div');
+                card.className = "card";
+                card.innerHTML = `<div class="card-icon">📁</div><div class="card-title">${folderName}</div>`;
+                card.onclick = () => renderZipFolder(internalPath + folderName + "/");
+                grid.appendChild(card);
+            });
+
+            // عرض الملفات والفيديوهات داخل الـ Zip
+            for (let fileName in filesMap) {
+                let fullZipPath = filesMap[fileName];
+                let ext = fileName.split('.').pop().toLowerCase();
+                let icon = "📄";
+                if (['mp4', 'mkv', 'webm', 'mov'].includes(ext)) icon = "🎬";
+                else if (['jpg', 'jpeg', 'png', 'gif'].includes(ext)) icon = "🖼️";
+
+                let card = document.createElement('div');
+                card.className = "card";
+                card.innerHTML = `<div class="card-icon">${icon}</div><div class="card-title">${fileName}</div>`;
+
+                card.onclick = async () => {
+                    let fileData = currentZipData.files[fullZipPath];
+                    let blob = await fileData.async("blob");
+                    let blobUrl = URL.createObjectURL(blob);
+
+                    if (['mp4', 'mkv', 'webm', 'mov'].includes(ext)) {
+                        playVideo(fileName, blobUrl);
+                    } else {
+                        window.open(blobUrl, '_blank');
+                    }
+                };
+                grid.appendChild(card);
             }
         }
 
@@ -225,7 +333,12 @@
             videoElement.pause();
             document.getElementById('player-container').style.display = "none";
             document.getElementById('app-content').style.display = "block";
-            loadFolderContent(currentPath);
+            
+            if (currentZipData) {
+                renderZipFolder(currentInternalPath);
+            } else {
+                loadFolderContent(currentPath);
+            }
         }
     </script>
 
