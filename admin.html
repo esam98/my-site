@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>لوحة التحكم | ESAM PERFUME</title>
+<link rel="icon" href="logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Reem+Kufi:wght@500;700&family=Tajawal:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#000;--fg:#fff;--mute:#9a9a9a;--line:#2b2b2b;--soft:#141414;--ok:#7ddc9b;--warn:#ffcf70;--bad:#ff8a8a;
+--head:"Reem Kufi","Tajawal",sans-serif;--body:"Tajawal",system-ui,sans-serif;-webkit-tap-highlight-color:rgba(255,255,255,.18)}
+*{box-sizing:border-box;margin:0}
+[hidden]{display:none!important}
+body{background:var(--bg);color:var(--fg);font-family:var(--body);font-size:16px;line-height:1.6;padding-bottom:60px}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--fg);outline-offset:3px}
+.wrap{max-width:960px;margin:0 auto;padding:0 16px}
+h1,h2{font-family:var(--head);font-weight:700}
+h2{font-size:22px;margin:26px 0 12px}
+.empty{color:var(--mute);padding:18px 0}
+.msg{margin-top:12px;min-height:1.6em;font-size:15px}.msg.err{color:var(--bad)}
+button,.btn,.link{font-family:inherit;transition:transform .12s,opacity .12s,background .15s,color .15s}
+button:active,.btn:active{transform:scale(.96);opacity:.75}
+.btn{font-family:var(--head);font-size:17px;font-weight:700;background:var(--fg);color:var(--bg);border:1px solid var(--fg);padding:11px 28px;border-radius:999px;cursor:pointer;text-decoration:none;display:inline-block;text-align:center}
+.btn.sm{font-size:15px;padding:8px 18px}
+.btn.alt{background:none;color:var(--fg)}
+.btn.danger{color:var(--bad);border-color:var(--bad)}
+.btn:disabled{cursor:progress}
+.loading{pointer-events:none;opacity:.75}
+.btn.loading::before{content:"";display:inline-block;width:14px;height:14px;border:2px solid currentColor;border-inline-start-color:transparent;border-radius:50%;margin-inline-end:8px;vertical-align:-2px;animation:spin .7s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+.link{background:none;border:0;color:var(--fg);text-decoration:underline;text-underline-offset:4px;font-size:15px;cursor:pointer}
+.link.danger{color:var(--bad)}
+label{display:block;margin-bottom:16px;font-weight:500}
+input:not([type=checkbox]):not([type=file]),textarea,select{width:100%;margin-top:6px;background:var(--soft);color:var(--fg);border:1px solid var(--line);border-radius:10px;padding:11px 13px;font:inherit}
+input:focus,textarea:focus,select:focus{border-color:var(--fg);outline:none}
+textarea{min-height:80px;resize:vertical}
+input[type=checkbox]{accent-color:#fff;width:18px;height:18px;vertical-align:-3px;margin-inline-end:6px}
+.row2{display:flex;gap:10px;margin-top:8px;flex-wrap:wrap}.row2>*{flex:1;text-align:center}
+
+.gate{min-height:100vh;display:grid;place-items:center;padding:20px}
+.gbox{width:100%;max-width:380px;text-align:center}
+.glogo{width:96px;height:96px;border-radius:50%;object-fit:cover;object-position:center 42%;border:1px solid var(--line);margin-bottom:12px}
+.gbox h1{font-size:28px;margin-bottom:22px}.gbox form{text-align:start}.gbox .btn{width:100%}
+.gbox .link{display:block;margin:14px auto 0}
+
+.top{border-bottom:1px solid var(--line);position:sticky;top:0;background:#000;z-index:10}
+.top .row{display:flex;align-items:center;justify-content:space-between;height:60px}
+.brand{display:flex;align-items:center;gap:10px;font-family:var(--head);font-size:19px}
+.brand img{width:38px;height:38px;border-radius:50%;object-fit:cover;object-position:center 42%;border:1px solid var(--line)}
+.acts{display:flex;gap:8px}
+.tabs{display:flex;gap:8px;overflow-x:auto;padding:14px 16px;scrollbar-width:none}
+.tabs button{flex:none;font-family:var(--head);font-size:16px;color:var(--fg);background:none;border:1px solid var(--line);border-radius:999px;padding:8px 18px;cursor:pointer}
+.tabs button[aria-pressed="true"]{background:var(--fg);color:var(--bg);border-color:var(--fg)}
+.cnt{display:inline-block;min-width:20px;padding:0 6px;border-radius:999px;background:var(--bad);color:#000;font-size:12px;font-weight:700;line-height:20px;text-align:center;margin-inline-start:4px}
+.cnt:empty{display:none}
+
+.stats{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
+@media(min-width:700px){.stats{grid-template-columns:repeat(3,1fr)}}
+.st{border:1px solid var(--line);background:#0c0c0c;border-radius:16px;padding:16px}
+.st span{display:block;color:var(--mute);font-size:14px}.st b{font-family:var(--head);font-size:24px;font-weight:500}
+
+.chips{display:flex;gap:8px;overflow-x:auto;margin:6px 0 14px;scrollbar-width:none}
+.chips button{flex:none;font-size:14px;color:var(--fg);background:none;border:1px solid var(--line);border-radius:999px;padding:6px 14px;cursor:pointer}
+.chips button[aria-pressed="true"]{background:var(--fg);color:var(--bg)}
+.chips span{opacity:.7}
+.bar{display:flex;gap:10px;align-items:center;margin-bottom:12px}.bar input{margin:0}
+
+.oc{border:1px solid var(--line);background:#0c0c0c;border-radius:16px;margin-bottom:12px;overflow:hidden}
+.ohead{display:grid;grid-template-columns:1fr auto;gap:2px 12px;width:100%;text-align:start;background:none;border:0;color:var(--fg);padding:14px 16px;cursor:pointer;font:inherit}
+.o1{display:flex;align-items:center;gap:10px}.o1 b{font-family:var(--head);font-size:18px;font-weight:500;direction:ltr}
+.o2{grid-column:1;color:var(--mute);font-size:14px}.o3{grid-row:1/3;grid-column:2;align-self:center;font-weight:700}
+.chip{font-size:12px;border:1px solid var(--line);border-radius:999px;padding:1px 10px;color:var(--mute);white-space:nowrap}
+.chip[data-s="new"]{color:#000;background:var(--fg);border-color:var(--fg)}
+.chip[data-s="confirmed"],.chip[data-s="preparing"]{color:var(--warn);border-color:var(--warn)}
+.chip[data-s="shipped"]{color:var(--fg);border-color:var(--fg)}
+.chip[data-s="delivered"]{color:var(--ok);border-color:var(--ok)}
+.chip[data-s="cancelled"]{color:var(--bad);border-color:var(--bad)}
+.obody{padding:4px 16px 16px;border-top:1px solid var(--line)}
+.drow{display:flex;justify-content:space-between;gap:16px;padding:10px 0;border-bottom:1px solid var(--line)}
+.drow>span:first-child{color:var(--mute);flex:none}.drow .v{text-align:end}.lk{text-decoration:underline;text-underline-offset:4px}
+.obody label{margin:14px 0 0}
+
+.pc{display:flex;gap:12px;align-items:center;border:1px solid var(--line);background:#0c0c0c;border-radius:16px;padding:12px;margin-bottom:12px}
+.pc.off{opacity:.55}
+.pc img,.noimg{width:64px;height:64px;border-radius:12px;object-fit:cover;background:var(--soft);flex:none}
+.pi{flex:1;min-width:0;display:flex;flex-direction:column}.pi b{font-family:var(--head);font-weight:500;font-size:18px}
+.pi>span{color:var(--mute);font-size:14px}.tg{display:flex;gap:14px;margin-top:6px;font-size:14px}.tg label{margin:0;font-weight:400}
+.pa{display:flex;flex-direction:column;gap:8px;align-items:flex-end}
+
+.sheet{position:fixed;inset:0;z-index:50;background:#000;overflow-y:auto;padding:16px 0 50px}
+.shead{display:flex;justify-content:space-between;align-items:center;margin-bottom:18px}
+.x{background:none;border:1px solid var(--line);color:var(--fg);width:40px;height:40px;border-radius:50%;font-size:18px;cursor:pointer}
+.prev{width:120px;height:120px;border-radius:14px;object-fit:cover;background:var(--soft);display:block;margin:8px 0}
+.card{border:1px solid var(--line);background:#0c0c0c;border-radius:18px;padding:20px;margin-bottom:16px}
+.cr{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:12px 0;border-bottom:1px solid var(--line)}
+.cr b{font-weight:500}.cr small{display:block;color:var(--mute)}
+.low{color:var(--warn)!important}
+.fh{font-family:var(--head);font-size:19px;font-weight:700;margin:22px 0 10px;padding-top:18px;border-top:1px solid var(--line)}
+.hint{color:var(--mute);font-size:14px;margin:-6px 0 16px}
+.toast{position:fixed;left:50%;bottom:24px;transform:translateX(-50%);background:#fff;color:#000;padding:10px 20px;border-radius:999px;font-weight:700;z-index:99;max-width:90vw}
+.toast.bad{background:var(--bad)}
+</style>
+</head>
+<body>
+
+<div class="gate" id="gate"><div class="gbox">
+  <img class="glogo" src="logo.png" alt="ESAM PERFUME">
+  <h1>لوحة التحكم</h1>
+  <form id="gForm" novalidate>
+    <label>البريد الإلكتروني<input id="gMail" type="email" autocomplete="email"></label>
+    <label>كلمة المرور<input id="gPass" type="password" autocomplete="current-password"></label>
+    <button class="btn" type="submit">دخول</button>
+  </form>
+  <p class="msg" id="gMsg" role="alert"></p>
+  <button class="link" id="gOut" type="button" hidden>تسجيل الخروج</button>
+  <a class="link" href="/">العودة للمتجر</a>
+</div></div>
+
+<div id="app" hidden>
+  <header class="top"><div class="wrap row">
+    <div class="brand"><img src="logo.png" alt=""><span>لوحة التحكم</span></div>
+    <div class="acts"><a class="btn sm alt" href="/">المتجر</a><button class="btn sm alt" id="out" type="button">خروج</button></div>
+  </div></header>
+
+  <nav class="tabs" id="tabs">
+    <button type="button" data-tab="home" aria-pressed="true">الرئيسية</button>
+    <button type="button" data-tab="orders" aria-pressed="false">الطلبات<span class="cnt" id="cOrders"></span></button>
+    <button type="button" data-tab="products" aria-pressed="false">العطور</button>
+    <button type="button" data-tab="customers" aria-pressed="false">العملاء</button>
+    <button type="button" data-tab="settings" aria-pressed="false">الإعدادات</button>
+  </nav>
+
+  <main class="wrap">
+    <section id="t-home">
+      <div class="stats" id="stats"></div>
+      <h2>آخر الطلبات</h2>
+      <div id="latest"></div>
+    </section>
+
+    <section id="t-orders" hidden>
+      <div class="chips" id="chips"></div>
+      <div class="bar"><input id="oq" type="search" placeholder="ابحث برقم الطلب أو الاسم أو الهاتف"><button class="btn sm alt" id="csv" type="button">تصدير CSV</button></div>
+      <div id="olist"></div>
+    </section>
+
+    <section id="t-products" hidden>
+      <div class="bar"><button class="btn" id="addP" type="button">+ إضافة عطر</button></div>
+      <div id="plist"></div>
+    </section>
+
+    <section id="t-customers" hidden>
+      <div class="bar"><input id="cq" type="search" placeholder="ابحث بالاسم أو الهاتف"></div>
+      <div class="card" id="clist"></div>
+    </section>
+
+    <section id="t-settings" hidden>
+      <form class="card" id="fSet" novalidate>
+        <label>رقم واتساب الطلبات (بصيغة دولية بدون +)<input id="sWa" inputmode="numeric" dir="ltr"></label>
+        <label>العملة<input id="sCur" placeholder="ج.س"></label>
+        <label>رسوم التوصيل (0 = بدون)<input id="sFee" type="number" min="0" inputmode="decimal"></label>
+        <label>توصيل مجاني للطلبات من (0 = غير مفعل)<input id="sFree" type="number" min="0" inputmode="decimal"></label>
+        <label>إعلان أعلى الموقع (اتركه فارغًا لإخفائه)<input id="sAnn" maxlength="160"></label>
+        <label><input type="checkbox" id="sOpen"> المتجر يستقبل الطلبات</label>
+        <button class="btn" type="submit">حفظ الإعدادات</button>
+        <p class="msg" id="sMsg" role="status"></p>
+      </form>
+    </section>
+  </main>
+</div>
+
+<div class="sheet" id="psheet" hidden><div class="wrap">
+  <div class="shead"><h2 id="pTitle" style="margin:0">إضافة عطر</h2><button class="x" id="pClose" type="button" aria-label="إغلاق">✕</button></div>
+  <form id="fProd" novalidate>
+    <input type="hidden" id="pId">
+    <label>اسم العطر<input id="pName"></label>
+    <label>السعر<input id="pPrice" type="number" min="0" inputmode="decimal"></label>
+    <label>التصنيف (مثل: رجالي، نسائي، عود)<input id="pCat" list="catList"></label>
+    <datalist id="catList"></datalist>
+    <label>الحجم (مثل: 50 مل)<input id="pSize"></label>
+    <label>الوصف<textarea id="pDesc"></textarea></label>
+    <h3 class="fh">نوتات العطر</h3>
+    <label>النوتات العليا (الافتتاحية)<input id="pNTop" placeholder="مثال: برغموت، ليمون، فلفل وردي"></label>
+    <label>نوتات القلب<input id="pNHeart" placeholder="مثال: ورد، ياسمين، زعفران"></label>
+    <label>نوتات القاعدة<input id="pNBase" placeholder="مثال: عود، مسك، عنبر"></label>
+    <p class="hint">افصل بين النوتات بفاصلة.</p>
+    <label>الصورة<input id="pFile" type="file" accept="image/*"></label>
+    <img class="prev" id="pPrev" alt="" hidden>
+    <button class="link" id="pImgDel" type="button" hidden>حذف الصورة</button>
+    <h3 class="fh">المخزون</h3>
+    <label>كمية المخزون (اختياري)<input id="pQty" type="number" min="0" inputmode="numeric" placeholder="اتركه فارغًا لعدم إظهار عدد"></label>
+    <p class="hint">إذا كتبت عددًا ينقص تلقائيًا عند تأكيد الطلب ويرجع عند إلغائه. وإذا تركته فارغًا يظهر العطر بدون عدد.</p>
+    <label><input type="checkbox" id="pStock" checked> متوفر في المخزون</label>
+    <label><input type="checkbox" id="pActive" checked> ظاهر في المتجر</label>
+    <label>الترتيب (رقم أصغر = أول)<input id="pSort" type="number" inputmode="numeric" value="0"></label>
+    <div class="row2"><button class="btn" type="submit">حفظ</button><button class="btn alt" id="pCancel" type="button">إلغاء</button></div>
+    <p class="msg" id="pMsg" role="alert"></p>
+  </form>
+</div></div>
+<div class="toast" id="toast" role="status" hidden></div>
+
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
+<script>
+const FIREBASE_CONFIG = {apiKey:"AIzaSyDnU7w4w06aKeDfH4qnjz-_RIT3OREij40", authDomain:"esam-perfume.firebaseapp.com", projectId:"esam-perfume", appId:"1:999190406960:web:c3384b41a74f7633764af5"};
+const ADMIN_EMAILS = ["esam20486@gmail.com"];   // يجب أن يطابق البريد في قواعد Firestore
+const STATUS = {new:"جديد", confirmed:"تم التأكيد", preparing:"قيد التجهيز", shipped:"تم الشحن", delivered:"تم التسليم", cancelled:"ملغي"};
+const FLOW = Object.keys(STATUS);
+const CONSUMING = ["confirmed", "preparing", "shipped", "delivered"];
+const isOut = p => p.inStock === false || (typeof p.stock === "number" && p.stock <= 0);
+const stockText = p => typeof p.stock === "number" ? "المخزون: " + p.stock : "بدون تحديد عدد";
+const lowStock = p => typeof p.stock === "number" && p.stock <= 3;
+const qtyVal = () => { const v = $("pQty").value.trim(); return v === "" ? null : Math.max(0, parseInt(v, 10) || 0); };
+
+const $ = id => document.getElementById(id);
+const esc = s => String(s == null ? "" : s).replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+const safeImg = u => /^(data:image\/|https:\/\/)/.test(u || "") ? u : "";
+let ORDERS = [], PRODUCTS = [], SET = {currency: "ج.س"}, unsubs = [], FILTER = "all", OPEN = new Set(), curImg = "", TAB = "home";
+const fmt = n => (+n || 0).toLocaleString("en-US") + " " + (SET.currency || "ج.س");
+const dt = ts => ts && ts.toDate ? ts.toDate() : null;
+const fdate = ts => { const d = dt(ts); return d ? d.toLocaleString("ar-u-nu-latn", {day: "numeric", month: "short", hour: "2-digit", minute: "2-digit"}) : "الآن"; };
+const waNum = p => { let d = String(p || "").replace(/\D/g, ""); if(d.startsWith("00")) d = d.slice(2); if(d.startsWith("0")) d = "249" + d.slice(1); return d; };
+const waLink = o => "https://wa.me/" + waNum(o.phone) + "?text=" + encodeURIComponent("مرحبًا " + (o.name || "") + "،\nبخصوص طلبك رقم " + o.code + " من ESAM PERFUME.\nحالة الطلب: " + (STATUS[o.status] || "") + ".");
+
+function toast(t, bad){
+  const el = $("toast"); el.textContent = t; el.className = "toast" + (bad ? " bad" : ""); el.hidden = false;
+  clearTimeout(toast.t); toast.t = setTimeout(() => el.hidden = true, 2800);
+}
+async function busy(btn, fn){
+  if(btn){ btn.classList.add("loading"); btn.disabled = true; }
+  try{ return await fn(); } finally { if(btn){ btn.classList.remove("loading"); btn.disabled = false; } }
+}
+const guard = fn => e => { e.preventDefault(); return busy(e.submitter || e.currentTarget.querySelector("button[type=submit]"), () => fn(e)); };
+
+firebase.initializeApp(FIREBASE_CONFIG);
+const auth = firebase.auth(), db = firebase.firestore(), TS = () => firebase.firestore.FieldValue.serverTimestamp();
+
+/* ---------- الدخول ---------- */
+$("gForm").addEventListener("submit", guard(async () => {
+  const m = $("gMsg"); m.textContent = "";
+  const mail = $("gMail").value.trim(), pass = $("gPass").value;
+  if(!mail || !pass){ m.textContent = "اكتب البريد وكلمة المرور."; return; }
+  try{ await auth.signInWithEmailAndPassword(mail, pass); }catch(x){ m.textContent = "البريد أو كلمة المرور غير صحيحة."; }
+}));
+$("out").addEventListener("click", () => auth.signOut());
+$("gOut").addEventListener("click", () => auth.signOut());
+
+auth.onAuthStateChanged(u => {
+  unsubs.forEach(f => f()); unsubs = [];
+  const ok = !!u && u.emailVerified && ADMIN_EMAILS.includes((u.email || "").toLowerCase());
+  $("gate").hidden = ok; $("app").hidden = !ok; $("gOut").hidden = !u;
+  $("gMsg").textContent = (u && !ok) ? "هذا الحساب غير مصرّح له بدخول لوحة التحكم." : "";
+  if(ok) start();
+});
+
+function start(){
+  let first = true;
+  unsubs.push(db.collection("orders").orderBy("createdAt", "desc").limit(300).onSnapshot(s => {
+    if(!first) s.docChanges().forEach(c => { if(c.type === "added" && !c.doc.metadata.hasPendingWrites) toast("طلب جديد: " + (c.doc.data().code || "")); });
+    first = false;
+    ORDERS = s.docs.map(d => ({...d.data(), _id: d.id}));
+    renderHome(); renderOrders(); renderCustomers();
+    const n = ORDERS.filter(o => o.status === "new").length;
+    $("cOrders").textContent = n || ""; document.title = (n ? "(" + n + ") " : "") + "لوحة التحكم | ESAM PERFUME";
+  }, () => toast("تعذر تحميل الطلبات. تأكد من قواعد Firestore.", true)));
+  unsubs.push(db.collection("products").onSnapshot(s => {
+    PRODUCTS = s.docs.map(d => ({id: d.id, ...d.data()})).sort((a, b) => (a.sort || 0) - (b.sort || 0) || ((a.createdAt && a.createdAt.seconds) || 0) - ((b.createdAt && b.createdAt.seconds) || 0));
+    renderProducts(); renderHome();
+  }, () => toast("تعذر تحميل العطور.", true)));
+  unsubs.push(db.collection("settings").doc("store").onSnapshot(s => {
+    SET = {currency: "ج.س", ...(s.exists ? s.data() : {})};
+    if(!$("fSet").dataset.dirty){
+      $("sWa").value = SET.whatsapp || ""; $("sCur").value = SET.currency || ""; $("sFee").value = SET.deliveryFee || 0; $("sFree").value = SET.freeFrom || 0;
+      $("sAnn").value = SET.announcement || ""; $("sOpen").checked = SET.storeOpen !== false;
+    }
+    renderHome(); renderOrders(); renderProducts(); renderCustomers();
+  }));
+}
+
+/* ---------- التبويبات ---------- */
+function show(tab){
+  TAB = tab;
+  document.querySelectorAll("#tabs button").forEach(b => b.setAttribute("aria-pressed", b.dataset.tab === tab));
+  ["home", "orders", "products", "customers", "settings"].forEach(t => $("t-" + t).hidden = t !== tab);
+}
+$("tabs").addEventListener("click", e => { const b = e.target.closest("button"); if(b) show(b.dataset.tab); });
+
+/* ---------- الرئيسية ---------- */
+function renderHome(){
+  const today = new Date().toDateString(), isToday = o => (dt(o.createdAt) || new Date()).toDateString() === today;
+  const sum = list => list.reduce((a, o) => a + (+o.total || 0), 0);
+  const live = ORDERS.filter(o => o.status !== "cancelled");
+  const stats = [["طلبات جديدة", ORDERS.filter(o => o.status === "new").length], ["طلبات اليوم", ORDERS.filter(isToday).length],
+    ["مبيعات اليوم", fmt(sum(live.filter(isToday)))], ["مبيعات مُسلَّمة", fmt(sum(ORDERS.filter(o => o.status === "delivered")))],
+    ["عدد العطور", PRODUCTS.length], ["نفد من المخزون", PRODUCTS.filter(isOut).length]];
+  $("stats").innerHTML = stats.map(([l, v]) => `<div class="st"><span>${l}</span><b>${v}</b></div>`).join("");
+  $("latest").innerHTML = ORDERS.length ? ORDERS.slice(0, 5).map(o => `<div class="oc"><button class="ohead" type="button" data-go="${esc(o._id)}">
+    <span class="o1"><b>${esc(o.code || o._id)}</b><span class="chip" data-s="${esc(o.status)}">${STATUS[o.status] || ""}</span></span>
+    <span class="o2">${esc(o.name)} · ${fdate(o.createdAt)}</span><span class="o3">${fmt(o.total)}</span></button></div>`).join("") : '<p class="empty">لا توجد طلبات بعد.</p>';
+}
+$("latest").addEventListener("click", e => { const b = e.target.closest("[data-go]"); if(!b) return; OPEN.add(b.dataset.go); FILTER = "all"; renderOrders(); show("orders"); });
+
+/* ---------- الطلبات ---------- */
+function orderCard(o){
+  const open = OPEN.has(o._id);
+  const items = (o.items || []).map(i => `<div class="drow"><span>${esc(i.name)} × ${esc(i.qty)}</span><span>${fmt(i.price * i.qty)}</span></div>`).join("");
+  return `<div class="oc"><button class="ohead" type="button" data-toggle="${esc(o._id)}" aria-expanded="${open}">
+    <span class="o1"><b>${esc(o.code || o._id)}</b><span class="chip" data-s="${esc(o.status)}">${STATUS[o.status] || esc(o.status)}</span></span>
+    <span class="o2">${esc(o.name)} · ${fdate(o.createdAt)}</span><span class="o3">${fmt(o.total)}</span></button>
+  ${open ? `<div class="obody">${items}
+    ${o.fee ? `<div class="drow"><span>التوصيل</span><span>${fmt(o.fee)}</span></div>` : ""}
+    <div class="drow"><b>الإجمالي</b><b>${fmt(o.total)}</b></div>
+    <div class="drow"><span>الهاتف</span><a class="lk" dir="ltr" href="tel:${esc(o.phone)}">${esc(o.phone)}</a></div>
+    <div class="drow"><span>العنوان</span><span class="v">${esc(o.address)}</span></div>
+    ${o.lat ? `<div class="drow"><span>الموقع</span><a class="lk" target="_blank" rel="noopener" href="https://www.google.com/maps?q=${esc(o.lat)},${esc(o.lng)}">فتح الخريطة</a></div>` : ""}
+    ${o.note ? `<div class="drow"><span>ملاحظات</span><span class="v">${esc(o.note)}</span></div>` : ""}
+    <label>حالة الطلب<select data-status="${esc(o._id)}">${FLOW.map(s => `<option value="${s}"${o.status === s ? " selected" : ""}>${STATUS[s]}</option>`).join("")}</select></label>
+    <div class="row2"><a class="btn sm" target="_blank" rel="noopener" href="${waLink(o)}">مراسلة الزبون</a><button class="btn sm alt danger" data-del="${esc(o._id)}" type="button">حذف الطلب</button></div>
+  </div>` : ""}</div>`;
+}
+function renderOrders(){
+  const q = $("oq").value.trim().toLowerCase(), counts = {all: ORDERS.length};
+  FLOW.forEach(s => counts[s] = ORDERS.filter(o => o.status === s).length);
+  $("chips").innerHTML = ["all", ...FLOW].map(s => `<button type="button" data-f="${s}" aria-pressed="${FILTER === s}">${s === "all" ? "الكل" : STATUS[s]} <span>${counts[s]}</span></button>`).join("");
+  const list = ORDERS.filter(o => (FILTER === "all" || o.status === FILTER) && (!q || ((o.code || "") + (o.name || "") + (o.phone || "")).toLowerCase().includes(q)));
+  $("olist").innerHTML = list.length ? list.map(orderCard).join("") : '<p class="empty">لا توجد طلبات.</p>';
+}
+$("oq").addEventListener("input", renderOrders);
+$("chips").addEventListener("click", e => { const b = e.target.closest("[data-f]"); if(b){ FILTER = b.dataset.f; renderOrders(); } });
+$("olist").addEventListener("click", async e => {
+  const t = e.target.closest("[data-toggle]");
+  if(t){ OPEN.has(t.dataset.toggle) ? OPEN.delete(t.dataset.toggle) : OPEN.add(t.dataset.toggle); renderOrders(); return; }
+  const d = e.target.closest("[data-del]");
+  if(d && confirm("حذف الطلب نهائيًا؟ (إن كان قد خصم من المخزون سيعود الخصم)")){
+    await busy(d, async () => {
+      try{
+        const o = ORDERS.find(x => x._id === d.dataset.del), batch = db.batch();
+        if(o && o.stockApplied) Object.keys(o.stockLog || {}).forEach(id => { const p = PRODUCTS.find(x => x.id === id); if(p && typeof p.stock === "number") batch.update(db.collection("products").doc(id), {stock: firebase.firestore.FieldValue.increment(o.stockLog[id])}); });
+        batch.delete(db.collection("orders").doc(d.dataset.del)); await batch.commit(); toast("تم حذف الطلب");
+      }catch(x){ toast("تعذر الحذف", true); }
+    });
+  }
+});
+async function setStatus(o, status){
+  const consume = CONSUMING.includes(status), batch = db.batch(), upd = {status, updatedAt: TS()};
+  const pref = id => db.collection("products").doc(id), inc = n => firebase.firestore.FieldValue.increment(n);
+  const tracked = id => { const p = PRODUCTS.find(x => x.id === id); return p && typeof p.stock === "number" ? p : null; };
+  if(consume && !o.stockApplied){
+    const log = {};
+    (o.items || []).forEach(i => { if(tracked(i.id)) log[i.id] = (log[i.id] || 0) + (+i.qty || 0); });
+    const short = Object.keys(log).filter(id => log[id] > tracked(id).stock);
+    if(short.length && !confirm("الكمية المطلوبة أكبر من المخزون المتاح لبعض العطور. هل تريد المتابعة؟")) return false;
+    Object.keys(log).forEach(id => batch.update(pref(id), {stock: inc(-log[id])}));
+    upd.stockApplied = true; upd.stockLog = log;
+  }else if(!consume && o.stockApplied){
+    Object.keys(o.stockLog || {}).forEach(id => { if(tracked(id)) batch.update(pref(id), {stock: inc(o.stockLog[id])}); });
+    upd.stockApplied = false; upd.stockLog = {};
+  }
+  batch.update(db.collection("orders").doc(o._id), upd);
+  await batch.commit(); return true;
+}
+$("olist").addEventListener("change", async e => {
+  const s = e.target.closest("select[data-status]"); if(!s) return;
+  const o = ORDERS.find(x => x._id === s.dataset.status); if(!o) return;
+  s.disabled = true;
+  try{ if(await setStatus(o, s.value)) toast("تم تحديث الحالة"); else renderOrders(); }
+  catch(x){ toast("تعذر تحديث الحالة", true); renderOrders(); }
+  s.disabled = false;
+});
+const cell = c => { c = String(c == null ? "" : c); if(/^[=+\-@]/.test(c)) c = "'" + c; return '"' + c.replace(/"/g, '""') + '"'; };
+$("csv").addEventListener("click", () => {
+  const rows = [["رقم الطلب", "التاريخ", "الاسم", "الهاتف", "العنوان", "المنتجات", "الإجمالي", "الحالة"]].concat(ORDERS.map(o => [o.code || o._id,
+    (dt(o.createdAt) || new Date()).toISOString().slice(0, 16).replace("T", " "), o.name, o.phone, o.address, (o.items || []).map(i => i.name + "×" + i.qty).join(" | "), o.total, STATUS[o.status] || o.status]));
+  const a = document.createElement("a");
+  a.href = URL.createObjectURL(new Blob(["\ufeff" + rows.map(r => r.map(cell).join(",")).join("\n")], {type: "text/csv;charset=utf-8"}));
+  a.download = "orders.csv"; a.click();
+});
+
+/* ---------- العطور ---------- */
+function renderProducts(){
+  $("catList").innerHTML = [...new Set(PRODUCTS.map(p => p.category).filter(Boolean))].map(c => `<option value="${esc(c)}">`).join("");
+  $("plist").innerHTML = PRODUCTS.length ? PRODUCTS.map(p => { const img = safeImg(p.image); return `<div class="pc${p.active === false ? " off" : ""}">
+    ${img ? `<img src="${img}" alt="">` : '<div class="noimg"></div>'}
+    <div class="pi"><b>${esc(p.name)}</b><span>${esc(p.category || "بدون تصنيف")}${p.size ? " · " + esc(p.size) : ""} · ${fmt(p.price)}</span><span class="${lowStock(p) ? "low" : ""}">${stockText(p)}</span>
+      <div class="tg"><label><input type="checkbox" data-stock="${esc(p.id)}"${p.inStock !== false ? " checked" : ""}> متوفر</label><label><input type="checkbox" data-active="${esc(p.id)}"${p.active !== false ? " checked" : ""}> ظاهر</label></div></div>
+    <div class="pa"><button class="link" data-edit="${esc(p.id)}" type="button">تعديل</button><button class="link" data-copy="${esc(p.id)}" type="button">نسخ الرابط</button><button class="link danger" data-pdel="${esc(p.id)}" type="button">حذف</button></div></div>`; }).join("")
+    : '<p class="empty">لم تضف عطورًا بعد. اضغط «إضافة عطر».</p>';
+}
+function setImg(src){
+  curImg = src || ""; $("pPrev").hidden = !curImg; $("pImgDel").hidden = !curImg; if(curImg) $("pPrev").src = curImg;
+}
+function openP(p){
+  $("pTitle").textContent = p ? "تعديل العطر" : "إضافة عطر"; $("pMsg").textContent = ""; $("pFile").value = "";
+  $("pId").value = p ? p.id : ""; $("pName").value = p ? p.name || "" : ""; $("pPrice").value = p ? p.price : ""; $("pCat").value = p ? p.category || "" : "";
+  $("pSize").value = p ? p.size || "" : ""; $("pDesc").value = p ? (p.description != null ? p.description : (p.note || "")) : "";
+  $("pNTop").value = p ? p.notesTop || "" : ""; $("pNHeart").value = p ? p.notesHeart || "" : ""; $("pNBase").value = p ? p.notesBase || "" : "";
+  $("pQty").value = p && typeof p.stock === "number" ? p.stock : ""; $("pStock").checked = p ? p.inStock !== false : true; $("pActive").checked = p ? p.active !== false : true;
+  $("pSort").value = p ? p.sort || 0 : 0; setImg(p ? safeImg(p.image) : "");
+  $("psheet").hidden = false; document.body.style.overflow = "hidden"; $("psheet").scrollTop = 0;
+}
+function closeP(){ $("psheet").hidden = true; document.body.style.overflow = ""; }
+$("addP").addEventListener("click", () => openP(null));
+$("pClose").addEventListener("click", closeP); $("pCancel").addEventListener("click", closeP);
+$("pImgDel").addEventListener("click", () => { setImg(""); $("pFile").value = ""; });
+function compress(file){
+  return new Promise((res, rej) => {
+    const img = new Image(), url = URL.createObjectURL(file);
+    img.onload = () => {
+      const r = Math.min(1, 720 / Math.max(img.width, img.height)), c = document.createElement("canvas");
+      c.width = Math.round(img.width * r); c.height = Math.round(img.height * r);
+      c.getContext("2d").drawImage(img, 0, 0, c.width, c.height); URL.revokeObjectURL(url);
+      let q = .8, out = c.toDataURL("image/jpeg", q);
+      while(out.length > 450000 && q > .4){ q -= .1; out = c.toDataURL("image/jpeg", q); }
+      out.length > 450000 ? rej(new Error("big")) : res(out);
+    };
+    img.onerror = () => rej(new Error("bad")); img.src = url;
+  });
+}
+$("pFile").addEventListener("change", async e => {
+  const f = e.target.files[0]; if(!f) return;
+  $("pMsg").className = "msg err"; $("pMsg").textContent = "جارٍ تجهيز الصورة...";
+  try{ setImg(await compress(f)); $("pMsg").textContent = ""; }catch(x){ $("pMsg").textContent = "تعذر استخدام هذه الصورة، جرّب صورة أخرى."; $("pFile").value = ""; }
+});
+$("fProd").addEventListener("submit", guard(async () => {
+  const m = $("pMsg"); m.className = "msg err";
+  const name = $("pName").value.trim(), price = parseFloat($("pPrice").value);
+  if(!name || !(price >= 0)){ m.textContent = "اكتب اسم العطر وسعره."; return; }
+  const data = {name, price, category: $("pCat").value.trim(), size: $("pSize").value.trim(), description: $("pDesc").value.trim(), notesTop: $("pNTop").value.trim(), notesHeart: $("pNHeart").value.trim(), notesBase: $("pNBase").value.trim(), stock: qtyVal(), image: curImg, inStock: $("pStock").checked, active: $("pActive").checked, sort: parseInt($("pSort").value, 10) || 0};
+  const id = $("pId").value;
+  try{
+    if(id) await db.collection("products").doc(id).set(data, {merge: true});
+    else await db.collection("products").add({...data, createdAt: TS()});
+    closeP(); toast("تم حفظ العطر");
+  }catch(x){ m.textContent = "تعذر الحفظ. تأكد من الاتصال ومن قواعد Firestore."; }
+}));
+$("plist").addEventListener("click", async e => {
+  const cp = e.target.closest("[data-copy]");
+  if(cp){ const url = location.origin + "/?p=" + encodeURIComponent(cp.dataset.copy); try{ await navigator.clipboard.writeText(url); toast("تم نسخ رابط العطر"); }catch(_){ window.prompt("انسخ الرابط", url); } return; }
+  const ed = e.target.closest("[data-edit]");
+  if(ed){ openP(PRODUCTS.find(p => p.id === ed.dataset.edit)); return; }
+  const d = e.target.closest("[data-pdel]");
+  if(d && confirm("حذف العطر نهائيًا؟")){
+    await busy(d, async () => { try{ await db.collection("products").doc(d.dataset.pdel).delete(); toast("تم حذف العطر"); }catch(x){ toast("تعذر الحذف", true); } });
+  }
+});
+$("plist").addEventListener("change", async e => {
+  const c = e.target.closest("input[data-stock],input[data-active]"); if(!c) return;
+  const field = c.dataset.stock ? "inStock" : "active", id = c.dataset.stock || c.dataset.active;
+  try{ await db.collection("products").doc(id).update({[field]: c.checked}); toast("تم التحديث"); }catch(x){ toast("تعذر التحديث", true); c.checked = !c.checked; }
+});
+
+/* ---------- العملاء ---------- */
+function renderCustomers(){
+  const q = $("cq").value.trim().toLowerCase(), m = new Map();
+  ORDERS.forEach(o => {
+    const k = waNum(o.phone) || o.phone || o._id, c = m.get(k) || {name: o.name, phone: o.phone, n: 0, sum: 0};
+    c.n++; if(o.status !== "cancelled") c.sum += +o.total || 0; m.set(k, c);
+  });
+  const list = [...m.values()].filter(c => !q || ((c.name || "") + (c.phone || "")).toLowerCase().includes(q)).sort((a, b) => b.sum - a.sum);
+  $("clist").innerHTML = list.length ? list.map(c => `<div class="cr"><div><b>${esc(c.name)}</b><small dir="ltr" style="text-align:start">${esc(c.phone)}</small></div>
+    <div style="text-align:end"><b>${fmt(c.sum)}</b><small>${c.n} طلب</small></div>
+    <a class="btn sm alt" target="_blank" rel="noopener" href="https://wa.me/${waNum(c.phone)}">واتساب</a></div>`).join("") : '<p class="empty">لا يوجد عملاء بعد.</p>';
+}
+$("cq").addEventListener("input", renderCustomers);
+
+/* ---------- الإعدادات ---------- */
+$("fSet").addEventListener("input", () => { $("fSet").dataset.dirty = "1"; });
+$("fSet").addEventListener("submit", guard(async () => {
+  const m = $("sMsg"); m.className = "msg err";
+  const wa = $("sWa").value.replace(/\D/g, "");
+  if(wa.length < 8){ m.textContent = "اكتب رقم واتساب صحيح بصيغة دولية."; return; }
+  const data = {whatsapp: wa, currency: $("sCur").value.trim() || "ج.س", deliveryFee: Math.max(0, +$("sFee").value || 0), freeFrom: Math.max(0, +$("sFree").value || 0),
+    announcement: $("sAnn").value.trim(), storeOpen: $("sOpen").checked};
+  try{ await db.collection("settings").doc("store").set(data, {merge: true}); delete $("fSet").dataset.dirty; m.className = "msg"; m.textContent = "تم حفظ الإعدادات."; }
+  catch(x){ m.textContent = "تعذر الحفظ. تأكد من قواعد Firestore."; }
+}));
+</script>
+</body>
+</html>
