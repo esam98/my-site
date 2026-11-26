@@ -1,0 +1,1071 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ESAM PERFUME | متجر عطور فاخرة</title>
+<meta name="description" content="ESAM PERFUME متجر عطور فاخرة. اختر عطرك واطلبه من مكانك.">
+<meta name="theme-color" content="#000000">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="ESAM PERFUME">
+<meta property="og:title" content="ESAM PERFUME | متجر عطور فاخرة">
+<meta property="og:description" content="اختر عطرك واطلبه من مكانك.">
+<meta property="og:image" content="https://esamperfume.com/logo.png">
+<meta name="twitter:card" content="summary">
+<link rel="icon" href="logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Reem+Kufi:wght@500;700&family=Tajawal:wght@400;500;700&display=swap" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Reem+Kufi:wght@500;700&family=Tajawal:wght@400;500;700&display=swap"></noscript>
+<style>
+:root{--bg:#000;--fg:#fff;--mute:#9a9a9a;--line:#2b2b2b;--soft:#141414;
+--head:"Reem Kufi","Tajawal",sans-serif;--body:"Tajawal",system-ui,sans-serif}
+*{box-sizing:border-box;margin:0}
+html{-webkit-text-size-adjust:100%}
+body{background:var(--bg);color:var(--fg);font-family:var(--body);font-size:17px;line-height:1.7}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--fg);outline-offset:3px}
+.wrap{max-width:720px;margin:0 auto;padding:0 20px}
+header{}
+header .wrap{display:flex;align-items:center;justify-content:center;height:60px}
+header img{height:44px;width:44px;object-fit:cover;object-position:center 40%}
+header a.nav{font-family:var(--head);font-size:16px;text-decoration:none;border:1px solid var(--fg);padding:6px 18px;border-radius:999px}
+header a.nav:hover{background:var(--fg);color:var(--bg)}
+.hero{text-align:center;padding:18px 0 34px}
+.hero img{width:min(52vw,220px);height:auto;display:block;margin:0 auto}
+.hero h1{font-family:var(--head);font-weight:700;font-size:clamp(24px,6.2vw,34px);line-height:1.4;margin:4px auto 22px;max-width:16em}
+.btn{font-family:var(--head);font-size:18px;font-weight:700;background:var(--fg);color:var(--bg);border:1px solid var(--fg);padding:12px 36px;border-radius:999px;cursor:pointer;text-decoration:none;display:inline-block}
+@media (hover:hover) and (pointer:fine){.btn:hover{background:var(--bg);color:var(--fg)}}
+section{padding:34px 0}
+h2{font-family:var(--head);font-size:30px;font-weight:700;margin-bottom:6px}
+.sub{color:var(--mute);margin-bottom:28px}
+.item{display:grid;grid-template-columns:1fr auto;gap:4px 16px;align-items:center;padding:18px 0;border-bottom:1px solid var(--line)}
+.item h3{font-family:var(--head);font-size:21px;font-weight:500}
+.item p{color:var(--mute);font-size:15px;grid-column:1}
+.price{font-weight:700;white-space:nowrap}
+.add{grid-column:2;grid-row:1/3;font-family:var(--body);font-weight:700;font-size:15px;color:var(--fg);background:none;border:1px solid var(--fg);border-radius:999px;padding:8px 18px;cursor:pointer}
+@media (hover:hover) and (pointer:fine){.add:hover{background:var(--fg);color:var(--bg)}}
+.add span{display:block;font-size:12px;font-weight:400;color:inherit}
+.add.added-success{background:#fff!important;color:#000!important;border-color:#fff!important}
+.add:focus:not(.added-success){outline:none}
+
+.price{grid-column:1}
+.empty{color:var(--mute);padding:16px 0}
+.line{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:12px 0;border-bottom:1px solid var(--line)}
+.qty{display:flex;align-items:center;gap:10px}
+.qty button{width:32px;height:32px;border-radius:50%;border:1px solid var(--fg);background:none;color:var(--fg);font-size:18px;cursor:pointer;line-height:1}
+.qty button:hover{background:var(--fg);color:var(--bg)}
+.total{display:flex;justify-content:space-between;font-family:var(--head);font-size:20px;padding:16px 0 28px}
+label{display:block;margin-bottom:18px;font-weight:500}
+input,textarea,select{width:100%;margin-top:6px;background:var(--soft);color:var(--fg);border:1px solid var(--line);border-radius:10px;padding:12px 14px;font:inherit}
+input:focus,textarea:focus,select:focus{border-color:var(--fg);outline:none}
+textarea{min-height:84px;resize:vertical}
+.msg{margin-top:16px;min-height:1.7em}
+.msg.err{color:#ff8a8a}
+footer{border-top:1px solid var(--line);text-align:center;color:var(--mute);padding:32px 0;font-size:14px}
+.fav{background:none;border:0;color:var(--mute);cursor:pointer;padding:2px 8px;vertical-align:middle}
+.fav svg{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:1.8}
+.fav.on{color:var(--fg)}.fav.on svg{fill:currentColor}
+body{padding-bottom:112px}
+.dock{position:fixed;z-index:40;left:50%;transform:translateX(-50%);bottom:calc(14px + env(safe-area-inset-bottom,0px));width:min(92vw,420px);height:64px;display:flex;align-items:center;justify-content:space-around;background:#101010;border:1px solid #2b2b2b;border-radius:999px;box-shadow:0 12px 32px rgba(0,0,0,.8),0 0 0 1px rgba(255,255,255,.04)}
+.dock a{position:relative;display:grid;place-items:center;width:48px;height:48px;border-radius:50%;color:#fff;opacity:.55;text-decoration:none}
+.dock a[aria-current="true"]{opacity:1}
+.dock a[aria-current="true"]::after{content:"";position:absolute;bottom:2px;width:4px;height:4px;border-radius:50%;background:#fff}
+.dock svg{width:26px;height:26px;fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+.dock .badge{position:absolute;top:3px;inset-inline-end:1px;min-width:17px;height:17px;padding:0 4px;border-radius:999px;background:#fff;color:#000;font-size:11px;font-weight:700;line-height:17px;text-align:center}
+.sheet{position:fixed;inset:0;z-index:30;background:#000;overflow-y:auto;overscroll-behavior:contain;padding:12px 0 130px;opacity:0;transform:translateY(16px);transition:opacity .2s ease,transform .26s cubic-bezier(.2,.8,.2,1)}
+.sheet.show{opacity:1;transform:none}
+.shead{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;margin-bottom:18px}
+.shead h2{margin:0;font-size:22px;text-align:center}
+.shead .back{justify-self:start}
+.x{background:none;border:1px solid var(--line);color:var(--fg);width:40px;height:40px;border-radius:50%;font-size:18px;cursor:pointer}
+.tabs{display:flex;gap:8px;margin-bottom:20px}
+.tabs button{flex:1;font-family:var(--head);font-size:17px;color:var(--fg);background:none;border:1px solid var(--line);border-radius:999px;padding:10px;cursor:pointer}
+.tabs button[aria-pressed="true"]{background:var(--fg);color:var(--bg);border-color:var(--fg)}
+.drow{display:flex;justify-content:space-between;gap:16px;padding:12px 0;border-bottom:1px solid var(--line)}
+.drow span:first-child{color:var(--mute)}
+.btn.alt{background:none;color:var(--fg);margin-top:20px}.btn.alt:hover{background:var(--fg);color:var(--bg)}
+.blk{margin-top:44px;padding-top:36px;border-top:1px solid var(--line)}
+.ht{font-family:var(--head);font-size:20px;margin:28px 0 4px}
+.card{background:#0c0c0c;border:1px solid var(--line);border-radius:18px;padding:20px;margin-bottom:16px}
+.card.hero{display:flex;align-items:center;gap:14px}
+.avatar{width:52px;height:52px;border-radius:50%;background:var(--fg);color:var(--bg);display:grid;place-items:center;font-family:var(--head);font-size:24px;font-weight:700;flex:none}
+.who{display:flex;flex-direction:column;min-width:0;flex:1}
+.who b{font-family:var(--head);font-size:clamp(16px,4.8vw,20px);font-weight:500;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+#pMail{direction:ltr;text-align:right}
+.who .chip{align-self:flex-start;font-size:12px;margin-top:8px}
+.who span{color:var(--mute);font-size:14px;overflow:hidden;text-overflow:ellipsis}
+.chip{font-size:12px;border:1px solid var(--line);border-radius:999px;padding:3px 10px;color:var(--mute);white-space:nowrap}
+.chip.ok{color:var(--fg);border-color:var(--fg)}
+.chead{display:flex;justify-content:space-between;align-items:center;margin-bottom:8px}
+.chead h3{font-family:var(--head);font-size:19px;font-weight:500}
+.link{background:none;border:0;color:var(--fg);text-decoration:underline;text-underline-offset:4px;font:inherit;font-size:15px;cursor:pointer}
+.note{border:1px dashed var(--mute);border-radius:14px;padding:14px 16px;margin-bottom:16px;font-size:15px}
+.row2{display:flex;gap:10px;margin-top:8px}
+.btn.sm{font-size:16px;padding:10px 18px}
+.row2 .btn{flex:1;text-align:center;margin-top:0}
+.btn.full{display:block;width:100%;margin-top:0}
+.addr{display:flex;gap:12px;align-items:flex-start;padding:6px 0}
+.addr svg,.locico{width:22px;height:22px;flex:none;fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+.addr svg{margin-top:3px}
+.hint{color:var(--mute);font-size:14px;margin:8px 0 14px;min-height:1.5em}
+.btn .locico{display:inline-block;vertical-align:-4px;margin-inline-end:6px}
+:root{-webkit-tap-highlight-color:rgba(255,255,255,.18)}
+button,.btn,.nav,.link,.dock a{transition:transform .12s,opacity .12s,background .15s,color .15s}
+button:active,.btn:active,.nav:active{transform:scale(.95);opacity:.75}
+.dock a:active{transform:scale(.85);opacity:1}
+.loading{pointer-events:none;opacity:.75}
+.btn:disabled{cursor:progress}
+.btn.loading::before,.link.loading::before{content:"";display:inline-block;width:14px;height:14px;border:2px solid currentColor;border-inline-start-color:transparent;border-radius:50%;margin-inline-end:8px;vertical-align:-2px;animation:spin .7s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+.foot{display:flex;flex-direction:column;align-items:center;gap:6px;margin-top:8px}
+.link.danger{color:#ff8a8a;margin-top:10px}
+.card.danger{border-color:#5a2a2a;margin-top:18px}
+.card.danger h3{font-family:var(--head);font-size:19px;font-weight:500;color:#ff8a8a;margin-bottom:6px}
+.btn.danger{background:#ff8a8a;border-color:#ff8a8a;color:#000}
+.foot-in{padding:8px 0 4px}
+.flogo{width:76px;height:76px;object-fit:cover;object-position:center 42%;border-radius:50%;border:1px solid var(--line);margin-bottom:14px}
+.foot-in h2{font-size:24px;margin-bottom:4px;color:var(--fg)}
+.foot-in .sub{margin-bottom:24px}
+.social{display:flex;justify-content:center;gap:12px;flex-wrap:wrap;margin-bottom:22px}
+.social a{display:flex;flex-direction:column;align-items:center;gap:8px;width:64px;text-decoration:none;color:var(--fg);font-size:13px}
+.social .ic{width:52px;height:52px;border:1px solid var(--line);border-radius:50%;display:grid;place-items:center;transition:background .15s,color .15s,border-color .15s}
+.social svg{width:24px;height:24px;fill:none;stroke:currentColor;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
+.social a:hover .ic,.social a:active .ic{background:var(--fg);color:var(--bg);border-color:var(--fg)}
+.fmail{display:inline-block;direction:ltr;color:var(--fg);text-decoration:underline;text-underline-offset:4px;margin-bottom:26px}
+.copy{border-top:1px solid var(--line);padding-top:18px;font-size:13px}
+[hidden]{display:none!important}
+.ann{background:#fff;color:#000;text-align:center;padding:8px 16px;font-size:14px;font-weight:700}
+.item.has-img{grid-template-columns:88px 1fr auto}
+.pimg{grid-column:1;grid-row:1/4;width:88px;height:88px;object-fit:cover;border-radius:12px;background:var(--soft)}
+.has-img h3,.has-img p,.has-img .price{grid-column:2}
+.has-img .add{grid-column:3}
+.item.out h3,.item.out p,.item.out .price,.item.out .pimg{opacity:.5}
+.add:disabled{opacity:.5;cursor:not-allowed}
+.ord small{color:var(--mute)}
+.item[data-open]{cursor:pointer}
+.item p{overflow:hidden;text-overflow:ellipsis;white-space:nowrap;min-width:0}
+.toast{position:fixed;left:50%;transform:translateX(-50%);bottom:calc(96px + env(safe-area-inset-bottom,0px));background:#fff;color:#000;padding:10px 20px;border-radius:999px;font-weight:700;font-size:15px;z-index:60;max-width:90vw;text-align:center}
+.pp{padding-top:6px;padding-bottom:24px}
+.pbar{display:flex;justify-content:space-between;align-items:center;margin:8px 0 14px}
+.back{display:flex;align-items:center;gap:4px;background:none;border:0;color:var(--fg);font:inherit;font-size:16px;cursor:pointer;padding:8px 4px}
+.back svg,.ic svg{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.pact{display:flex;gap:8px}
+.ic{width:42px;height:42px;border-radius:50%;border:1px solid var(--line);background:none;color:var(--fg);display:grid;place-items:center;cursor:pointer}
+.ic.on svg{fill:currentColor}
+.pimgbox{aspect-ratio:1/1;border-radius:22px;overflow:hidden;border:1px solid var(--line);background:#0c0c0c;display:grid;place-items:center}
+.pimgbox>img{width:100%;height:100%;object-fit:cover}
+.pph img{width:52%;height:auto;display:block;margin:0 auto;opacity:.9}
+.pmeta{display:flex;gap:8px;margin:18px 0 6px;flex-wrap:wrap}
+.ptitle{font-family:var(--head);font-size:clamp(28px,8vw,38px);line-height:1.3;font-weight:700}
+.pprice{font-family:var(--head);font-size:26px;margin:6px 0 2px}
+.pstock{color:var(--mute);font-size:15px}.pstock.out{color:#ff8a8a}
+.ph{font-family:var(--head);font-size:21px;font-weight:700;margin:28px 0 12px;padding-top:24px;border-top:1px solid var(--line)}
+.pdesc{color:#d6d6d6}
+.notes{display:flex;flex-direction:column;gap:14px}
+.nrow{display:grid;grid-template-columns:78px 1fr;gap:12px;align-items:start}
+.nt{color:var(--mute);font-size:14px;padding-top:6px}
+.nl{display:flex;flex-wrap:wrap;gap:8px}
+.nchip{border:1px solid var(--line);border-radius:999px;padding:5px 14px;font-size:15px;background:#0c0c0c}
+.buy{display:flex;gap:14px;align-items:center;margin-top:30px}
+.buy .qty{border:1px solid var(--line);border-radius:999px;padding:6px 10px}
+.buy .btn{flex:1;text-align:center}
+.rels{display:flex;gap:12px;overflow-x:auto;padding-bottom:6px;scrollbar-width:none}
+.rel{flex:none;width:132px;cursor:pointer}
+.rel img,.rph{width:132px;height:132px;object-fit:cover;border-radius:14px;border:1px solid var(--line);background:#0c0c0c;display:block}
+.rel b{display:block;font-family:var(--head);font-weight:500;font-size:15px;margin-top:6px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.rel span{color:var(--mute);font-size:14px}
+.pays{display:grid;gap:10px;margin:6px 0 14px}
+.payopt{display:flex;justify-content:space-between;align-items:center;gap:12px;width:100%;text-align:start;background:#0c0c0c;color:var(--fg);border:1px solid var(--line);border-radius:14px;padding:14px 16px;font:inherit;cursor:pointer}
+.payopt b{font-family:var(--head);font-weight:500;font-size:18px}
+.payopt span{color:var(--mute);font-size:14px}
+.payopt[aria-pressed="true"]{border-color:var(--fg);box-shadow:0 0 0 1px var(--fg) inset}
+.payinfo{border:1px solid var(--line);border-radius:14px;padding:6px 16px;margin-bottom:18px;background:#0c0c0c}
+.payinfo .drow:last-of-type{border-bottom:0}
+.payinfo .v{text-align:end}
+.prevr{max-width:100%;max-height:260px;border-radius:12px;border:1px solid var(--line);display:block;margin:0 0 16px}
+.sent a.btn{margin-top:12px}
+button,a,.item,.rel,.pay{touch-action:manipulation}
+.item{content-visibility:auto;contain-intrinsic-size:auto 112px}
+#productPage:not([hidden]){animation:rise .3s ease both}
+@keyframes rise{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+.browse .hero{display:none}
+.browse #products{padding-top:18px}
+.sk{display:grid;grid-template-columns:88px 1fr;gap:10px 14px;padding:18px 0;border-bottom:1px solid var(--line)}
+.sk i{display:block;border-radius:10px;background:linear-gradient(100deg,#111 30%,#1d1d1d 50%,#111 70%);background-size:200% 100%;animation:shim 1.3s linear infinite}
+.sk i:first-child{grid-row:1/4;height:88px;border-radius:12px}.sk i:nth-child(2){height:18px;width:60%}.sk i:nth-child(3){height:14px;width:40%}.sk i:nth-child(4){height:14px;width:30%}
+@keyframes shim{to{background-position:-200% 0}}
+.pimgbox>img{transition:filter .35s ease}.pimgbox>img.soft{filter:blur(5px)}
+.dock .badge.bump{animation:bump .28s ease-out}
+@keyframes bump{0%{transform:scale(1)}45%{transform:scale(1.35)}100%{transform:scale(1)}}
+@media(prefers-reduced-motion:reduce){.sheet,.sheet.show{transition:none}#productPage:not([hidden]){animation:none}.sk i{animation:none}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+
+/* عرض العطور في عمودين مثل المتاجر الحديثة */
+#list{
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:18px 12px;
+  align-items:stretch;
+}
+#list .item{
+  display:flex;
+  flex-direction:column;
+  align-items:stretch;
+  gap:7px;
+  min-width:0;
+  height:100%;
+  padding:14px 0;
+  border-bottom:1px solid var(--line);
+  content-visibility:visible;
+  contain-intrinsic-size:auto;
+}
+#list .item.has-img{display:flex;grid-template-columns:none}
+#list .item .pimg{
+  order:0;
+  width:100%;
+  height:auto;
+  aspect-ratio:1/1;
+  object-fit:contain;
+  grid-column:auto;
+  grid-row:auto;
+  border-radius:14px;
+}
+#list .item h3{
+  order:1;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:4px;
+  min-width:0;
+  font-size:clamp(15px,4.2vw,19px);
+  line-height:1.45;
+}
+#list .item h3 .fav{flex:none}
+#list .item p{
+  order:2;
+  grid-column:auto;
+  width:100%;
+  white-space:normal;
+  overflow-wrap:anywhere;
+  font-size:13px;
+  line-height:1.5;
+}
+#list .item .price{
+  order:3;
+  grid-column:auto;
+  white-space:normal;
+  font-size:17px;
+  margin-top:2px;
+}
+#list .item .add{
+  order:4;
+  grid-column:auto;
+  grid-row:auto;
+  width:100%;
+  min-height:48px;
+  height:48px;
+  margin-top:auto;
+  padding:9px 6px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  font-size:14px;
+  line-height:1.3;
+  border-radius:12px;
+  flex-shrink:0;
+}
+#list .sk{min-width:0;grid-template-columns:1fr;gap:10px;padding:12px 0}
+#list .sk i:first-child{grid-row:auto;width:100%;height:auto;aspect-ratio:1/1}
+#list .sk i:nth-child(2),#list .sk i:nth-child(3),#list .sk i:nth-child(4){width:75%}
+
+</style>
+</head>
+<body>
+
+<div class="ann" id="ann" hidden></div>
+<header><div class="wrap">
+  <img src="logo.png" alt="ESAM PERFUME">
+</div></header>
+
+<main id="homeMain">
+<div class="wrap hero">
+  <img src="logo.png" alt="شعار ESAM PERFUME">
+  <h1>اختر عطرك، واطلبه من مكانك</h1>
+  <button class="btn" type="button" data-go="products">شاهد العطور</button>
+</div>
+
+<section id="products"><div class="wrap">
+  <h2>العطور</h2>
+  <p class="sub">اضغط «أضف للطلب» على أي عطر، ثم أكمل بياناتك بالأسفل.</p>
+  <input class="search" id="q" type="search" placeholder="ابحث عن عطر..." aria-label="بحث عن عطر">
+  <div id="list"><div class="sk"><i></i><i></i><i></i><i></i></div><div class="sk"><i></i><i></i><i></i><i></i></div><div class="sk"><i></i><i></i><i></i><i></i></div></div>
+</div></section>
+
+</main>
+<main id="productPage" hidden></main>
+<div class="toast" id="toast" role="status" hidden></div>
+
+<div class="sheet" id="acct" hidden role="dialog" aria-label="حسابي"><div class="wrap">
+  <div class="shead"><button class="back sback" type="button" aria-label="رجوع"><svg viewBox="0 0 24 24"><path d="M9 6l6 6-6 6"/></svg><span>رجوع</span></button><h2>حسابي</h2><span></span></div>
+
+  <div id="authView">
+    <p class="sub">سجّل دخولك أو أنشئ حسابًا لإرسال طلباتك ومتابعتها.</p>
+    <p class="msg err" id="fbNote" hidden>الحسابات غير مفعلة بعد.</p>
+    <div class="tabs">
+      <button type="button" data-tab="login" aria-pressed="true">تسجيل الدخول</button>
+      <button type="button" data-tab="signup" aria-pressed="false">حساب جديد</button>
+    </div>
+    <form id="fLogin" novalidate>
+      <label>البريد الإلكتروني<input id="lemail" type="email" autocomplete="email"></label>
+      <label>كلمة المرور<input id="lpass" type="password" autocomplete="current-password"></label>
+      <button class="btn" type="submit">دخول</button>
+      <button class="link" id="forgot" type="button" style="display:block;margin:16px auto 0">نسيت كلمة المرور؟</button>
+    </form>
+    <form id="fSignup" novalidate hidden>
+      <label>الاسم<input id="sname" autocomplete="name"></label>
+      <label>رقم الهاتف<input id="sphone" type="tel" inputmode="tel" autocomplete="tel"></label>
+      <label>البريد الإلكتروني<input id="semail" type="email" autocomplete="email"></label>
+      <label>كلمة المرور (6 أحرف على الأقل)<input id="spass" type="password" autocomplete="new-password"></label>
+      <button class="btn" type="submit">إنشاء الحساب</button>
+    </form>
+    <p class="msg" id="authMsg" role="alert"></p>
+  </div>
+
+  <div id="accView" hidden>
+    <div class="card hero">
+      <div class="avatar" id="avatar">E</div>
+      <div class="who"><b id="pName"></b><span id="pMail"></span><span class="chip" id="vBadge"></span></div>
+    </div>
+
+    <div class="note" id="vBanner" hidden>
+      <p>أكّد بريدك الإلكتروني لتوثيق حسابك. أرسلنا رابط التأكيد إلى بريدك، افتحه ثم اضغط «تم التأكيد».</p>
+      <div class="row2"><button class="btn sm" id="checkVerify" type="button">تم التأكيد</button><button class="btn sm alt" id="resendVerify" type="button">إعادة الإرسال</button></div>
+      <p class="msg" id="vMsg" role="status"></p>
+    </div>
+
+    <section class="card">
+      <div class="chead"><h3>تفاصيل الحساب</h3><button class="link" id="pEdit" type="button">تعديل</button></div>
+      <div id="pView">
+        <div class="drow"><span>الاسم</span><span id="vName"></span></div>
+        <div class="drow"><span>الهاتف</span><span id="vPhone"></span></div>
+      </div>
+      <form id="fProfile" novalidate hidden>
+        <label>الاسم<input id="aName" autocomplete="name"></label>
+        <label>رقم الهاتف<input id="aPhone" type="tel" inputmode="tel" autocomplete="tel"></label>
+        <div class="row2"><button class="btn sm" type="submit">حفظ</button><button class="btn sm alt" id="pCancel" type="button">إلغاء</button></div>
+      </form>
+      <p class="msg" id="pMsg" role="status"></p>
+      <div class="drow" id="pwRow"><span>كلمة المرور</span><button class="link" id="pwOpen" type="button">تغيير كلمة المرور</button></div>
+      <form id="fPw" novalidate hidden>
+        <label>كلمة المرور الحالية<input id="pwOld" type="password" autocomplete="current-password"></label>
+        <label>كلمة المرور الجديدة (6 أحرف على الأقل)<input id="pwNew" type="password" autocomplete="new-password"></label>
+        <label>تأكيد كلمة المرور الجديدة<input id="pwNew2" type="password" autocomplete="new-password"></label>
+        <button class="link" id="pwForgot" type="button" style="display:block;margin:2px 0 14px">نسيت كلمة المرور؟</button>
+        <div class="row2"><button class="btn sm" type="submit">حفظ كلمة المرور</button><button class="btn sm alt" id="pwCancel" type="button">إلغاء</button></div>
+      </form>
+      <p class="msg" id="pwMsg" role="status"></p>
+    </section>
+
+    <section class="card">
+      <div class="chead"><h3>عنوان الاستلام</h3><button class="link" id="aEdit" type="button">إضافة</button></div>
+      <div id="aView"></div>
+      <form id="fAddr" novalidate hidden>
+        <label>الولاية<select id="aState"></select></label>
+        <label>المدينة / الحي<input id="aArea" autocomplete="address-level2"></label>
+        <label>العنوان التفصيلي (الشارع، رقم المنزل)<input id="aStreet" autocomplete="street-address"></label>
+        <label>أقرب معلم (اختياري)<input id="aLand"></label>
+        <button class="btn sm alt full" id="locBtn" type="button"><svg class="locico" viewBox="0 0 24 24"><path d="M12 21s-7-6.2-7-11a7 7 0 0114 0c0 4.8-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg>تحديد موقعي الحالي على الخريطة</button>
+        <p class="hint" id="locStat"></p>
+        <div class="row2"><button class="btn sm" type="submit">حفظ العنوان</button><button class="btn sm alt" id="aCancel" type="button">إلغاء</button></div>
+      </form>
+      <p class="msg" id="aMsg" role="status"></p>
+    </section>
+
+    <a class="btn full" id="adminLink" href="/admin.html" hidden style="text-align:center;margin-bottom:16px">لوحة التحكم</a>
+    <div id="history"></div>
+    <div class="foot">
+      <button class="btn alt" id="logout" type="button">تسجيل الخروج</button>
+      <button class="link danger" id="delOpen" type="button">حذف الحساب</button>
+    </div>
+    <div class="card danger" id="delBox" hidden>
+      <h3>حذف الحساب نهائيًا</h3>
+      <p class="sub">سيتم حذف بياناتك المحفوظة (الاسم والهاتف والعنوان والموقع) نهائيًا ولا يمكن التراجع. تبقى سجلات الطلبات المنفذة لدى المتجر. لتأكيد الحذف اكتب كلمة المرور.</p>
+      <label>كلمة المرور<input id="delPass" type="password" autocomplete="current-password"></label>
+      <div class="row2"><button class="btn sm danger" id="delGo" type="button">نعم، احذف حسابي</button><button class="btn sm alt" id="delCancel" type="button">إلغاء</button></div>
+      <p class="msg" id="delMsg" role="alert"></p>
+    </div>
+  </div>
+</div></div>
+
+<div class="sheet" id="cartSheet" hidden role="dialog" aria-label="السلة"><div class="wrap">
+  <div class="shead"><button class="back sback" type="button" aria-label="رجوع"><svg viewBox="0 0 24 24"><path d="M9 6l6 6-6 6"/></svg><span>رجوع</span></button><h2>طلبك</h2><span></span></div>
+  <p class="note" id="closedNote" hidden>المتجر متوقف مؤقتًا عن استقبال الطلبات. يمكنك تصفح العطور وسنعود قريبًا.</p>
+  <div class="note" id="sentNote" hidden></div>
+  <div id="cart"></div>
+  <button class="btn" id="checkoutBtn" type="button" hidden>إتمام الطلب</button>
+  <form id="form" novalidate hidden>
+    <p class="sub">راجع بياناتك أو عدّلها قبل الإرسال. بعد الإرسال يفتح واتساب برسالة جاهزة.</p>
+    <label>الاسم<input id="name" autocomplete="name" required></label>
+    <label>رقم الهاتف<input id="phone" type="tel" inputmode="tel" autocomplete="tel" required></label>
+    <label>المدينة والعنوان<input id="addr" autocomplete="street-address" required></label>
+    <label>ملاحظات (اختياري)<textarea id="note"></textarea></label>
+    <div id="payBlock" hidden>
+      <h3 class="ht">طريقة الدفع</h3>
+      <div class="pays" id="payList"></div>
+      <div class="payinfo" id="payInfo" hidden></div>
+      <label id="refLbl">رقم العملية<input id="payRef" inputmode="numeric" autocomplete="off" dir="ltr"></label>
+      <label id="rcpLbl">صورة إشعار التحويل<input id="payFile" type="file" accept="image/*"></label>
+      <img class="prevr" id="payPrev" alt="" hidden>
+    </div>
+    <button class="btn" type="submit">أرسل الطلب عبر واتساب</button>
+    <p class="msg" id="msg" role="status"></p>
+  </form>
+</div></div>
+
+<footer><div class="wrap foot-in">
+  <img class="flogo" src="logo.png" alt="ESAM PERFUME">
+  <h2>تواصل معنا</h2>
+  <p class="sub">تابعنا وتواصل معنا عبر القنوات التالية.</p>
+  <nav class="social" aria-label="روابط التواصل">
+    <a href="https://www.instagram.com/esamperfume" target="_blank" rel="noopener noreferrer" aria-label="إنستغرام"><span class="ic"><svg viewBox="0 0 24 24"><path d="M4 8a4 4 0 0 1 4-4h8a4 4 0 0 1 4 4v8a4 4 0 0 1-4 4H8a4 4 0 0 1-4-4z"/><path d="M9 12a3 3 0 1 0 6 0a3 3 0 0 0-6 0"/><path d="M16.5 7.5v.01"/></svg></span>إنستغرام</a>
+    <a href="https://www.tiktok.com/@esam_perfume" target="_blank" rel="noopener noreferrer" aria-label="تيك توك"><span class="ic"><svg viewBox="0 0 24 24"><path d="M21 7.917v4.034a9.948 9.948 0 0 1-5-1.951v4.5a6.5 6.5 0 1 1-8-6.326v4.326a2.5 2.5 0 1 0 4 2v-11.5h4.083a6.005 6.005 0 0 0 4.917 4.917z"/></svg></span>تيك توك</a>
+    <a href="https://www.facebook.com/profile.php?id=61596664350252" target="_blank" rel="noopener noreferrer" aria-label="فيسبوك"><span class="ic"><svg viewBox="0 0 24 24"><path d="M7 10v4h3v7h4v-7h3l1-4h-4V8a1 1 0 0 1 1-1h3V3h-3a5 5 0 0 0-5 5v2z"/></svg></span>فيسبوك</a>
+    <a id="fWa" href="#" target="_blank" rel="noopener noreferrer" aria-label="واتساب"><span class="ic"><svg viewBox="0 0 24 24"><path d="M3 21l1.65-3.8a9 9 0 1 1 3.4 2.9L3 21"/><path d="M9 10a.5.5 0 0 0 1 0V9a.5.5 0 0 0-1 0v1a5 5 0 0 0 5 5h1a.5.5 0 0 0 0-1h-1a.5.5 0 0 0 0 1"/></svg></span>واتساب</a>
+    <a href="mailto:esamperfume@gmail.com" aria-label="البريد الإلكتروني"><span class="ic"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg></span>الإيميل</a>
+  </nav>
+  <a class="fmail" href="mailto:esamperfume@gmail.com">esamperfume@gmail.com</a>
+  <p class="copy">© 2026 ESAM PERFUME. جميع الحقوق محفوظة.</p>
+</div></footer>
+
+<nav class="dock" aria-label="التنقل">
+  <a href="#" data-nav="shop" aria-label="المتجر" aria-current="true"><svg viewBox="0 0 24 24"><path d="M4 9h16v10H4z M5 9l1.5-4h11L19 9 M10 13h4"/></svg></a>
+  <a href="#" data-nav="search" aria-label="بحث" aria-current="false"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="6.5"/><path d="M16 16l5 5"/></svg></a>
+  <a href="#" data-nav="fav" aria-label="المفضلة" aria-current="false"><svg viewBox="0 0 24 24"><path d="M12 20s-7-4.4-7-10a4 4 0 017-2.6A4 4 0 0119 10c0 5.6-7 10-7 10z"/></svg></a>
+  <a href="#" data-nav="cart" aria-label="الطلب" aria-current="false"><svg viewBox="0 0 24 24"><path d="M5 5h14v15H5z M9 9a3 3 0 006 0"/></svg><span class="badge" id="badge" hidden>0</span></a>
+  <a href="#" data-nav="acct" aria-label="حسابي" aria-current="false"><svg viewBox="0 0 24 24" style="fill:currentColor"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4.4 3.6-7 8-7s8 2.6 8 7z"/></svg></a>
+</nav>
+
+<script defer src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+<script defer src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script>
+<script defer src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
+<script type="module">
+"use strict";
+/* ===== عدّل هنا ===== */
+let WHATSAPP = "249997467414";   // رقم واتساب بصيغة دولية بدون + وبدون صفر (مثال السودان: 2499XXXXXXXX)
+let CURRENCY = "ج.س";             // العملة
+let PRODUCTS = [];   // تُحمَّل العطور تلقائيًا من لوحة التحكم
+const FIREBASE_CONFIG = {apiKey:"AIzaSyDnU7w4w06aKeDfH4qnjz-_RIT3OREij40", authDomain:"esam-perfume.firebaseapp.com", projectId:"esam-perfume", appId:"1:999190406960:web:c3384b41a74f7633764af5"};  // الصق إعدادات Firebase هنا لتفعيل الحسابات
+const ADMIN_EMAILS = ["esam20486@gmail.com"];  // لإظهار رابط اللوحة فقط، والحماية الفعلية في قواعد Firestore
+/* ==================== */
+
+const order = {}; let checkingOut = false;
+/* ===== حفظ السلة: في الجهاز دائمًا، وفي الحساب عند تسجيل الدخول ===== */
+const CART_KEY = "ep_cart_v1";
+let cartOwner = null, cartReady = false, cartTimer = null, lastSig = "";
+(function(){
+  try{
+    const s = JSON.parse(localStorage.getItem(CART_KEY) || "null");
+    if(s && s.c){ cartOwner = s.u || null; Object.keys(s.c).forEach(k => { const q = Math.floor(+s.c[k]); if(q > 0 && q < 100) order[k] = q; }); }
+  }catch(e){}
+})();
+function cleanCart(o){ const c = {}; Object.keys(o || {}).forEach(k => { const q = Math.floor(+o[k]); if(q > 0 && q < 100) c[k] = q; }); return c; }
+function persistCart(){
+  const sig = JSON.stringify(order) + "|" + cartOwner;
+  if(sig === lastSig) return; lastSig = sig;
+  try{ localStorage.setItem(CART_KEY, JSON.stringify({u: cartOwner, c: order})); }catch(e){}
+  if(user && db && cartReady){
+    clearTimeout(cartTimer); const snap = {...order}, uid = user.uid;
+    cartTimer = setTimeout(() => { db.collection("users").doc(uid).set({cart: snap}, {mergeFields: ["cart"]}).catch(() => {}); }, 700);
+  }
+}
+function reconcileCart(){
+  let removed = 0;
+  Object.keys(order).forEach(id => {
+    const p = PRODUCTS.find(x => x.id == id);
+    if(!p || isOut(p)){ delete order[id]; removed++; return; }
+    const s = stockOf(p); if(s != null && order[id] > s) order[id] = s;
+  });
+  if(removed) toast("بعض العطور في سلتك لم تعد متوفرة وتمت إزالتها.");
+}
+function adoptCart(u, remote){
+  const clean = cleanCart(remote), mine = cartOwner === u.uid;
+  if(mine && remote){ Object.keys(order).forEach(k => delete order[k]); Object.assign(order, clean); }
+  else if(cartOwner === null){ Object.keys(clean).forEach(k => { order[k] = Math.max(order[k] || 0, clean[k]); }); }
+  else if(!mine){ Object.keys(order).forEach(k => delete order[k]); Object.assign(order, clean); }
+  cartOwner = u.uid; cartReady = true; lastSig = ""; renderCart();
+}
+window.addEventListener("storage", e => {
+  if(e.key !== CART_KEY || !e.newValue) return;
+  try{
+    const s = JSON.parse(e.newValue); if(!s || !s.c) return;
+    Object.keys(order).forEach(k => delete order[k]); Object.assign(order, cleanCart(s.c)); cartOwner = s.u || null;
+    lastSig = JSON.stringify(order) + "|" + cartOwner; renderCart();
+  }catch(x){}
+});
+let SETTINGS = {deliveryFee: 0, freeFrom: 0, storeOpen: true, announcement: ""};
+let payChoice = null, receiptData = "";
+try{ history.scrollRestoration = "manual"; }catch(e){}
+let searching = false;
+let productOpen = false, curP = null, pq = 1, homeScroll = 0, storeLoaded = false;
+const BASE_TITLE = document.title;
+/* آخر نسخة محفوظة من العطور والإعدادات: تظهر فورًا ثم تتحدث من الإنترنت */
+(function(){
+  try{
+    const c = JSON.parse(localStorage.getItem("ep_store_v1") || "null");
+    if(c && Array.isArray(c.p) && c.p.length){
+      PRODUCTS = c.p; SETTINGS = {...SETTINGS, ...(c.s || {})};
+      if(SETTINGS.whatsapp) WHATSAPP = String(SETTINGS.whatsapp); if(SETTINGS.currency) CURRENCY = SETTINGS.currency;
+      storeLoaded = true;
+    }
+  }catch(e){}
+})();
+const STATUS = {new:"جديد", confirmed:"تم التأكيد", preparing:"قيد التجهيز", shipped:"تم الشحن", delivered:"تم التسليم", cancelled:"ملغي"};
+const favs = new Set(); let favOnly = false, query = "";
+try{ JSON.parse(localStorage.getItem("favs")||"[]").forEach(x => favs.add(x)); }catch(e){}
+const saveFavs = () => { try{ localStorage.setItem("favs", JSON.stringify([...favs])); }catch(e){} };
+const HEART = '<svg viewBox="0 0 24 24"><path d="M12 20s-7-4.4-7-10a4 4 0 017-2.6A4 4 0 0119 10c0 5.6-7 10-7 10z"/></svg>';
+const $ = id => document.getElementById(id);
+const fmt = n => n.toLocaleString("en-US") + " " + CURRENCY;
+
+function stockOf(p){ return typeof p.stock === "number" ? p.stock : null; }
+function isOut(p){ const s = stockOf(p); return p.inStock === false || (s != null && s <= 0); }
+function splitNotes(v){ return String(v || "").split(/[,،;\n]+/).map(s => s.trim()).filter(Boolean); }
+
+function syncBrowse(){ $("homeMain").classList.toggle("browse", favOnly || searching || !!query); }
+function renderList(){
+  syncBrowse();
+  if(!storeLoaded){ $("list").innerHTML = '<div class="sk"><i></i><i></i><i></i><i></i></div>'.repeat(3); return; }
+  const hay = p => [p.name, p.category, p.size, p.description != null ? p.description : p.note, p.notesTop, p.notesHeart, p.notesBase].join(" ");
+  const shown = PRODUCTS.filter(p => (!favOnly || favs.has(p.id)) && hay(p).includes(query));
+  if(!shown.length){ $("list").innerHTML = '<p class="empty">' + (!PRODUCTS.length ? "العطور قريبًا." : favOnly ? "لم تضف عطورًا للمفضلة بعد." : "لا توجد نتائج.") + '</p>'; return; }
+  $("list").innerHTML = shown.map(p => {
+    const out = isOut(p), img = safeImg(p.thumb || p.image), st = stockOf(p);
+    const meta = [p.category, p.size].filter(Boolean).map(esc).join(" · ") + (st != null && st > 0 ? (p.category || p.size ? " · " : "") + "متبقي " + st : "");
+    return `<div class="item${img ? " has-img" : ""}${out ? " out" : ""}" data-open="${esc(p.id)}" role="link" tabindex="0" aria-label="${esc(p.name)}">
+      ${img ? `<img class="pimg" src="${img}" alt="${esc(p.name)}" loading="lazy">` : ""}
+      <h3>${esc(p.name)}<button class="fav ${favs.has(p.id) ? "on" : ""}" type="button" data-fav="${esc(p.id)}" aria-label="مفضلة" aria-pressed="${favs.has(p.id)}">${HEART}</button></h3>
+      ${out ? '<button class="add" type="button" disabled>نفد</button>' : `<button class="add" type="button" data-add="${esc(p.id)}">أضف للطلب</button>`}
+      <p>${meta}</p>
+      <div class="price">${fmt(p.price)}</div>
+    </div>`; }).join("");
+}
+
+function calc(){
+  let subtotal = 0;
+  Object.keys(order).forEach(id => { const p = PRODUCTS.find(x => x.id == id); if(p) subtotal += p.price * order[id]; });
+  const has = Object.keys(order).length > 0;
+  const fee = has ? ((+SETTINGS.freeFrom && subtotal >= +SETTINGS.freeFrom) ? 0 : (+SETTINGS.deliveryFee || 0)) : 0;
+  return {subtotal, fee, total: subtotal + fee};
+}
+
+function renderCart(){
+  if(storeLoaded) reconcileCart();
+  persistCart();
+  const count = Object.values(order).reduce((a, b) => a + b, 0), closed = SETTINGS.storeOpen === false;
+  const bg = $("badge"), before = +bg.textContent || 0;
+  bg.textContent = count; bg.hidden = !count; $("closedNote").hidden = !closed;
+  if(count > before){ bg.classList.remove("bump"); void bg.offsetWidth; bg.classList.add("bump"); }
+  $("checkoutBtn").hidden = !count || checkingOut || closed || !storeLoaded; $("form").hidden = !count || !checkingOut || closed || !storeLoaded;
+  const ids = Object.keys(order).filter(id => PRODUCTS.find(x => x.id == id));
+  if(!ids.length){ $("cart").innerHTML = '<p class="empty">' + (!storeLoaded && count ? "جارٍ تحميل سلتك..." : "لم تضف أي عطر بعد.") + '</p>'; return; }
+  const {subtotal, fee, total} = calc();
+  const rows = ids.map(id => {
+    const p = PRODUCTS.find(x => x.id == id), q = order[id];
+    return `<div class="line">
+      <span>${esc(p.name)}</span>
+      <span class="qty">
+        <button type="button" data-dec="${id}" aria-label="تقليل">−</button>
+        <b>${q}</b>
+        <button type="button" data-inc="${id}" aria-label="زيادة">+</button>
+      </span>
+      <span class="price">${fmt(p.price * q)}</span>
+    </div>`;
+  }).join("");
+  renderPay();
+  $("cart").innerHTML = rows + `<div class="drow"><span>المنتجات</span><span>${fmt(subtotal)}</span></div>`
+    + (+SETTINGS.deliveryFee ? `<div class="drow"><span>التوصيل</span><span>${fee ? fmt(fee) : "مجاني"}</span></div>` : "")
+    + `<div class="total"><span>الإجمالي</span><span>${fmt(total)}</span></div>`;
+}
+
+function addToOrder(id, n){
+  const p = PRODUCTS.find(x => x.id == id); if(!p || isOut(p)) return false;
+  const s = stockOf(p), cur = order[id] || 0, cap = s == null ? Infinity : s;
+  if(cur >= cap){ toast("المتاح من هذا العطر " + cap + " فقط"); return false; }
+  if(cur + n > cap) toast("المتاح من هذا العطر " + cap + " فقط");
+  order[id] = Math.min(cur + n, cap); renderCart(); $("msg").textContent = ""; return true;
+}
+document.addEventListener("click", e => {
+  const t = e.target.closest("button");
+  if(t){
+    const d = t.dataset;
+    if(d.fav){ toggleFav(d.fav); return; }
+    if(d.pay){ payChoice = d.pay; renderPay(); return; }
+    if(d.copyacc){ const m = activePays().find(x => x.id === d.copyacc); if(m) copyText(m.number); return; }
+    if(d.add){ if(addToOrder(d.add, 1)){ t.textContent = "تمت الإضافة ✓"; t.classList.add("added-success"); t.blur(); if(t._addedTimer) clearTimeout(t._addedTimer); t._addedTimer = setTimeout(() => { t.textContent = "أضف للطلب"; t.classList.remove("added-success"); t.blur(); }, 900); } return; }
+    if(d.inc){ addToOrder(d.inc, 1); return; }
+    if(d.dec){ order[d.dec]--; if(order[d.dec] <= 0) delete order[d.dec]; renderCart(); $("msg").textContent = ""; return; }
+    if(d.go === "products"){ $("products").scrollIntoView({behavior: "smooth", block: "start"}); return; }
+    if(d.pq){ stepQty(d.pq); return; }
+    if(d.padd !== undefined){ const p = PRODUCTS.find(x => x.id === curP); if(p && addToOrder(curP, pq)){ t.textContent = "تمت الإضافة ✓"; t.classList.add("added-success"); t.blur(); if(t._addedTimer) clearTimeout(t._addedTimer); t._addedTimer = setTimeout(() => { t.textContent = "أضف للطلب"; t.classList.remove("added-success"); t.blur(); }, 1200); } return; }
+    if(d.pfav !== undefined){ toggleFav(curP); return; }
+    if(d.pshare !== undefined){ const p = PRODUCTS.find(x => x.id === curP); if(p) shareProduct(p); return; }
+    if(d.pback !== undefined){ if(history.state && history.state.p) history.back(); else goHome(); return; }
+    return;
+  }
+  const card = e.target.closest("[data-open]");
+  if(card) openProduct(card.dataset.open);
+});
+
+$("q").addEventListener("input", e => { query = e.target.value.trim(); renderList(); });
+window.addEventListener("keydown", e => { if(e.key === "Escape") closeOverlay(); });
+const navs = document.querySelectorAll(".dock a[data-nav]");
+const setNav = n => navs.forEach(a => a.setAttribute("aria-current", a.dataset.nav === n ? "true" : "false"));
+navs.forEach(a => a.addEventListener("click", e => {
+  e.preventDefault();
+  const n = a.dataset.nav;
+  if(n === "cart" || n === "acct"){ openSheet(n); setNav(n); return; }
+  closeOverlay(() => {
+    if(productOpen) goHome();
+    if(n === "shop"){ favOnly = false; searching = false; query = ""; $("q").value = ""; renderList(); setNav("shop"); window.scrollTo(0, 0); return; }
+    if(n === "search"){ searching = true; renderList(); setNav("search"); window.scrollTo(0, 0); $("q").focus(); return; }
+    if(n === "fav"){ favOnly = !favOnly; renderList(); setNav(favOnly ? "fav" : "shop"); window.scrollTo(0, 0); }
+  });
+}));
+/* ===== الحساب ===== */
+const FB = !!FIREBASE_CONFIG.apiKey && !!window.firebase;
+let user = null, profile = null, auth = null, db = null;
+const ERR = {"auth/invalid-credential":"البريد أو كلمة المرور غير صحيحة.","auth/invalid-email":"البريد الإلكتروني غير صحيح.","auth/email-already-in-use":"هذا البريد مسجل مسبقًا.","auth/weak-password":"كلمة المرور ضعيفة (6 أحرف على الأقل).","auth/network-request-failed":"تحقق من الاتصال بالإنترنت.","auth/too-many-requests":"محاولات كثيرة، حاول مرة أخرى بعد قليل."};
+const errMsg = e => ERR[e.code] || "حدث خطأ، حاول مرة أخرى.";
+async function busy(btn, fn){
+  if(btn){ btn.classList.add("loading"); btn.disabled = true; }
+  try{ return await fn(); } finally { if(btn){ btn.classList.remove("loading"); btn.disabled = false; } }
+}
+const guard = fn => e => { e.preventDefault(); return busy(e.submitter || e.currentTarget.querySelector("button[type=submit]"), () => fn(e)); };
+const sheets = {acct: $("acct"), cart: $("cartSheet")};
+let ovOpen = null, ovEntry = false, ovAfter = null;
+function showSheet(s){ s.hidden = false; void s.offsetWidth; s.classList.add("show"); }
+function hideSheet(s){ s.classList.remove("show"); setTimeout(() => { if(!s.classList.contains("show")) s.hidden = true; }, 220); }
+function openSheet(which){
+  Object.keys(sheets).forEach(k => { if(k !== which) hideSheet(sheets[k]); });
+  ovOpen = which; const st = {ov: which, p: curP};
+  if(ovEntry) history.replaceState(st, "", location.href); else { history.pushState(st, "", location.href); ovEntry = true; }
+  showSheet(sheets[which]); document.body.style.overflow = "hidden"; sheets[which].scrollTop = 0;
+  if(which === "cart"){ checkingOut = false; $("sentNote").hidden = true; renderCart(); } else renderAcct();
+}
+function closeSheet(){ Object.values(sheets).forEach(hideSheet); document.body.style.overflow = ""; ovOpen = null; }
+function closeOverlay(cb){
+  if(!ovOpen){ if(cb) cb(); return; }
+  ovAfter = cb || null;
+  if(ovEntry) history.back(); else { closeSheet(); const f = ovAfter; ovAfter = null; if(f) f(); }
+}
+const STATES = ["الخرطوم","الجزيرة","النيل الأبيض","النيل الأزرق","سنار","القضارف","كسلا","البحر الأحمر","نهر النيل","الشمالية","شمال كردفان","جنوب كردفان","غرب كردفان","شمال دارفور","جنوب دارفور","غرب دارفور","شرق دارفور","وسط دارفور","أخرى"];
+$("aState").innerHTML = '<option value="">اختر الولاية</option>' + STATES.map(s => `<option>${s}</option>`).join("");
+const esc = s => String(s).replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+const PIN = '<svg viewBox="0 0 24 24"><path d="M12 21s-7-6.2-7-11a7 7 0 0114 0c0 4.8-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg>';
+const safeImg = u => /^(data:image\/|https:\/\/)/.test(u || "") ? u : "";
+const mapUrl = p => "https://www.google.com/maps?q=" + p.lat + "," + p.lng;
+const composeAddr = p => [p.state, p.area, p.street, p.landmark ? "(" + p.landmark + ")" : ""].filter(Boolean).join("، ");
+let draftLoc = null;
+
+function renderAcct(){
+  const logged = !!user;
+  $("authView").hidden = logged; $("accView").hidden = !logged; $("fbNote").hidden = FB;
+  if(!logged) return;
+  const p = profile || {}, nm = p.name || user.displayName || "";
+  $("avatar").textContent = (nm || user.email || "?").trim().charAt(0).toUpperCase();
+  $("pName").textContent = nm || "حسابي"; $("pMail").textContent = user.email;
+  const ok = user.emailVerified, b = $("vBadge");
+  b.textContent = ok ? "موثّق ✓" : "غير موثّق"; b.className = "chip" + (ok ? " ok" : "");
+  $("vBanner").hidden = ok;
+  $("adminLink").hidden = !(ok && ADMIN_EMAILS.includes((user.email || "").toLowerCase()));
+  $("vName").textContent = nm || "—"; $("vPhone").textContent = p.phone || "—";
+  const has = !!p.address;
+  $("aEdit").textContent = has ? "تعديل" : "إضافة";
+  $("aView").innerHTML = has
+    ? '<div class="addr">' + PIN + '<div><div>' + esc(p.address) + '</div>' + (p.lat ? '<a class="link" href="' + mapUrl(p) + '" target="_blank" rel="noopener">عرض الموقع على الخريطة</a>' : "") + '</div></div>'
+    : '<p class="empty">لم تضف عنوان استلام بعد.</p>';
+}
+function setEditP(on){
+  $("pView").hidden = on; $("fProfile").hidden = !on; $("pEdit").hidden = on; $("pMsg").textContent = "";
+  if(on){ const p = profile || {}; $("aName").value = p.name || ""; $("aPhone").value = p.phone || ""; }
+}
+function setEditA(on){
+  $("aView").hidden = on; $("fAddr").hidden = !on; $("aEdit").hidden = on; $("aMsg").textContent = "";
+  if(on){
+    const p = profile || {};
+    $("aState").value = p.state || ""; $("aArea").value = p.area || ""; $("aStreet").value = p.street || ""; $("aLand").value = p.landmark || "";
+    draftLoc = p.lat ? {lat: p.lat, lng: p.lng} : null;
+    $("locStat").textContent = draftLoc ? "تم تحديد موقعك على الخريطة ✓" : "";
+  }
+}
+async function loadOrders(){
+  const box = $("history"); box.innerHTML = "";
+  if(!user || !db) return;
+  try{
+    const s = await db.collection("orders").where("uid", "==", user.uid).limit(30).get();
+    const list = s.docs.map(d => d.data()).sort((a, b) => ((b.createdAt && b.createdAt.seconds) || 0) - ((a.createdAt && a.createdAt.seconds) || 0)).slice(0, 10);
+    if(!list.length) return;
+    box.innerHTML = '<h3 class="ht">طلباتي</h3>' + list.map(o => `<div class="line ord"><span><b>${esc(o.code || "")}</b><br><small>${(o.items || []).map(i => esc(i.name) + " ×" + i.qty).join("، ")}</small></span><span class="price">${fmt(o.total || 0)}<br><span class="chip">${STATUS[o.status] || ""}</span></span></div>`).join("");
+  }catch(e){}
+}
+document.querySelectorAll("[data-tab]").forEach(b => b.addEventListener("click", () => {
+  document.querySelectorAll("[data-tab]").forEach(x => x.setAttribute("aria-pressed", x === b));
+  $("fLogin").hidden = b.dataset.tab !== "login"; $("fSignup").hidden = b.dataset.tab !== "signup"; $("authMsg").textContent = "";
+}));
+document.querySelectorAll(".sback").forEach(b => b.addEventListener("click", () => closeOverlay()));
+$("logout").addEventListener("click", e => auth && busy(e.currentTarget, () => auth.signOut()));
+
+$("fLogin").addEventListener("submit", guard(async e => {
+  e.preventDefault(); const m = $("authMsg"); m.className = "msg err";
+  if(!FB){ m.textContent = "الحسابات غير مفعلة بعد."; return; }
+  const mail = $("lemail").value.trim(), pass = $("lpass").value;
+  if(!mail || !pass){ m.textContent = "اكتب البريد وكلمة المرور."; return; }
+  try{ await auth.signInWithEmailAndPassword(mail, pass); m.textContent = ""; e.target.reset(); }catch(x){ m.textContent = errMsg(x); }
+}));
+$("fSignup").addEventListener("submit", guard(async e => {
+  e.preventDefault(); const m = $("authMsg"); m.className = "msg err";
+  if(!FB){ m.textContent = "الحسابات غير مفعلة بعد."; return; }
+  const name = $("sname").value.trim(), phone = $("sphone").value.trim(), mail = $("semail").value.trim(), pass = $("spass").value;
+  if(!name || !phone || !mail || !pass){ m.textContent = "أكمل كل الخانات."; return; }
+  try{
+    const c = await auth.createUserWithEmailAndPassword(mail, pass);
+    profile = {name, phone, address: ""};
+    c.user.sendEmailVerification().catch(() => {});
+    // تحديث اسم Firebase منفصل حتى لا يمنع فشلُه حفظَ رقم الهاتف في Firestore.
+    try{ await c.user.updateProfile({displayName: name}); }catch(_){}
+    await db.collection("users").doc(c.user.uid).set({
+      name: name,
+      phone: phone,
+      address: "",
+      createdAt: firebase.firestore.FieldValue.serverTimestamp()
+    }, {merge: true});
+    profile = {...profile, name, phone, address: ""};
+    m.className = "msg"; m.textContent = "تم إنشاء الحساب وحفظ رقم الهاتف.";
+    e.target.reset(); renderAcct();
+  }catch(x){ m.textContent = errMsg(x); }
+}));
+
+if(FB){
+  firebase.initializeApp(FIREBASE_CONFIG); auth = firebase.auth(); db = firebase.firestore();
+  auth.onAuthStateChanged(async u => {
+    const prev = user; user = u; profile = null; cartReady = false; clearTimeout(cartTimer);
+    if(u){
+      let ok = false;
+      try{ const d = await db.collection("users").doc(u.uid).get(); profile = d.exists ? d.data() : {name: u.displayName || "", phone: ""}; ok = true; }
+      catch(e){ profile = {name: u.displayName || "", phone: ""}; }
+      if(ok) adoptCart(u, profile.cart);
+    }else if(prev){
+      Object.keys(order).forEach(k => delete order[k]); cartOwner = null; lastSig = ""; renderCart();
+    }
+    renderAcct(); loadOrders();
+  });
+}
+$("checkoutBtn").addEventListener("click", () => {
+  checkingOut = true; renderCart();
+  if(profile){ $("name").value = profile.name || ""; $("phone").value = profile.phone || ""; $("addr").value = profile.address || ""; }
+  $("form").scrollIntoView({block: "start"});
+});
+$("pEdit").addEventListener("click", () => setEditP(true));
+$("pCancel").addEventListener("click", () => setEditP(false));
+$("aEdit").addEventListener("click", () => setEditA(true));
+$("aCancel").addEventListener("click", () => setEditA(false));
+$("fProfile").addEventListener("submit", guard(async e => {
+  e.preventDefault(); const m = $("pMsg"); m.className = "msg err";
+  const name = $("aName").value.trim(), phone = $("aPhone").value.trim();
+  if(!name || !phone){ m.textContent = "الاسم والهاتف مطلوبان."; return; }
+  try{
+    if(!user || !db){ m.textContent = "سجّل الدخول أولاً ثم حاول حفظ بياناتك."; return; }
+    await db.collection("users").doc(user.uid).set({name: name, phone: phone, updatedAt: firebase.firestore.FieldValue.serverTimestamp()}, {merge: true});
+    try{ await user.updateProfile({displayName: name}); }catch(_){}
+    profile = {...(profile || {}), name, phone}; setEditP(false); renderAcct();
+    m.className = "msg"; m.textContent = "تم حفظ بياناتك.";
+  }catch(x){ m.textContent = "تعذر الحفظ، حاول مرة أخرى."; }
+}));
+$("locBtn").addEventListener("click", () => {
+  const s = $("locStat");
+  if(!navigator.geolocation){ s.textContent = "المتصفح لا يدعم تحديد الموقع."; return; }
+  s.textContent = "جارٍ تحديد موقعك..."; $("locBtn").classList.add("loading");
+  navigator.geolocation.getCurrentPosition(
+    pos => { $("locBtn").classList.remove("loading"); draftLoc = {lat: +pos.coords.latitude.toFixed(6), lng: +pos.coords.longitude.toFixed(6)}; s.textContent = "تم تحديد موقعك على الخريطة ✓"; },
+    () => { $("locBtn").classList.remove("loading"); s.textContent = "تعذر تحديد الموقع، تأكد من السماح للمتصفح بالوصول لموقعك."; },
+    {enableHighAccuracy: true, timeout: 12000});
+});
+$("fAddr").addEventListener("submit", guard(async e => {
+  e.preventDefault(); const m = $("aMsg"); m.className = "msg err";
+  const d = {state: $("aState").value, area: $("aArea").value.trim(), street: $("aStreet").value.trim(), landmark: $("aLand").value.trim()};
+  if(!d.state || !d.area || !d.street){ m.textContent = "اختر الولاية وأكمل المدينة والعنوان التفصيلي."; return; }
+  d.address = composeAddr(d); d.lat = draftLoc ? draftLoc.lat : null; d.lng = draftLoc ? draftLoc.lng : null;
+  try{
+    await db.collection("users").doc(user.uid).set(d, {merge: true});
+    profile = {...(profile || {}), ...d}; setEditA(false); renderAcct();
+    m.className = "msg"; m.textContent = "تم حفظ عنوان الاستلام.";
+  }catch(x){ m.textContent = "تعذر الحفظ، حاول مرة أخرى."; }
+}));
+$("forgot").addEventListener("click", e => busy(e.currentTarget, async () => {
+  const m = $("authMsg"); m.className = "msg err";
+  if(!FB){ m.textContent = "الحسابات غير مفعلة بعد."; return; }
+  const mail = $("lemail").value.trim();
+  if(!mail){ m.textContent = "اكتب بريدك الإلكتروني في الخانة أعلاه أولًا."; return; }
+  try{
+    await auth.sendPasswordResetEmail(mail);
+    m.className = "msg"; m.textContent = "إذا كان البريد مسجلًا لدينا فسيصلك رابط لإعادة تعيين كلمة المرور. تفقد الوارد والرسائل غير المرغوبة.";
+  }catch(x){ m.textContent = errMsg(x); }
+}));
+function setPw(on){ $("fPw").hidden = !on; $("pwRow").hidden = on; $("pwMsg").textContent = ""; if(!on) $("fPw").reset(); }
+$("pwForgot").addEventListener("click", e => busy(e.currentTarget, async () => {
+  const m = $("pwMsg"); m.className = "msg err";
+  try{
+    await auth.sendPasswordResetEmail(user.email);
+    m.className = "msg"; m.textContent = "أرسلنا رابط إعادة تعيين كلمة المرور إلى " + user.email + ". تفقد الوارد والرسائل غير المرغوبة.";
+  }catch(x){ m.textContent = errMsg(x); }
+}));
+$("pwOpen").addEventListener("click", () => setPw(true));
+$("pwCancel").addEventListener("click", () => setPw(false));
+$("fPw").addEventListener("submit", guard(async e => {
+  const m = $("pwMsg"); m.className = "msg err";
+  const old = $("pwOld").value, nw = $("pwNew").value, nw2 = $("pwNew2").value;
+  if(!old || !nw || !nw2){ m.textContent = "أكمل كل الخانات."; return; }
+  if(nw.length < 6){ m.textContent = "كلمة المرور الجديدة 6 أحرف على الأقل."; return; }
+  if(nw !== nw2){ m.textContent = "كلمتا المرور الجديدتان غير متطابقتين."; return; }
+  if(nw === old){ m.textContent = "اختر كلمة مرور مختلفة عن الحالية."; return; }
+  try{ await user.reauthenticateWithCredential(firebase.auth.EmailAuthProvider.credential(user.email, old)); }
+  catch(x){ m.textContent = (x.code === "auth/invalid-credential" || x.code === "auth/wrong-password") ? "كلمة المرور الحالية غير صحيحة." : errMsg(x); return; }
+  try{ await user.updatePassword(nw); setPw(false); m.className = "msg"; m.textContent = "تم تغيير كلمة المرور."; }
+  catch(x){ m.textContent = errMsg(x); }
+}));
+$("delOpen").addEventListener("click", () => {
+  $("delBox").hidden = false; $("delOpen").hidden = true; $("delPass").value = ""; $("delMsg").textContent = "";
+  $("delBox").scrollIntoView({block: "center"});
+});
+$("delCancel").addEventListener("click", () => { $("delBox").hidden = true; $("delOpen").hidden = false; });
+$("delGo").addEventListener("click", e => busy(e.currentTarget, async () => {
+  const m = $("delMsg"); m.className = "msg err";
+  const pass = $("delPass").value;
+  if(!pass){ m.textContent = "اكتب كلمة المرور للتأكيد."; return; }
+  try{ await user.reauthenticateWithCredential(firebase.auth.EmailAuthProvider.credential(user.email, pass)); }
+  catch(x){ m.textContent = (x.code === "auth/invalid-credential" || x.code === "auth/wrong-password") ? "كلمة المرور غير صحيحة." : errMsg(x); return; }
+  try{
+    await db.collection("users").doc(user.uid).delete();
+  }catch(x){ m.textContent = "تعذر حذف بياناتك، حاول مرة أخرى."; return; }
+  try{
+    await user.delete();
+    profile = null; $("delBox").hidden = true; $("delOpen").hidden = false;
+    const a = $("authMsg"); a.className = "msg"; a.textContent = "تم حذف حسابك نهائيًا.";
+  }catch(x){ m.textContent = "تعذر حذف الحساب، حاول مرة أخرى."; }
+}));
+$("resendVerify").addEventListener("click", async () => {
+  const m = $("vMsg"); m.className = "msg";
+  try{ await busy($("resendVerify"), () => user.sendEmailVerification()); m.textContent = "أرسلنا رابط التأكيد إلى بريدك. تفقد الوارد والرسائل غير المرغوبة."; }
+  catch(x){ m.className = "msg err"; m.textContent = x.code === "auth/too-many-requests" ? "حاول مرة أخرى بعد قليل." : "تعذر الإرسال."; }
+});
+$("checkVerify").addEventListener("click", async () => {
+  const m = $("vMsg");
+  try{ await busy($("checkVerify"), () => user.reload()); renderAcct(); m.className = "msg err"; m.textContent = user.emailVerified ? "" : "لم يتم تأكيد البريد بعد."; }catch(_){}
+});
+function applySettings(){
+  const a = $("ann"); a.textContent = SETTINGS.announcement || ""; a.hidden = !SETTINGS.announcement;
+  $("fWa").href = "https://wa.me/" + WHATSAPP;
+}
+async function loadStore(){
+  if(!db){ storeLoaded = true; return; }
+  try{
+    const s = await db.collection("settings").doc("store").get();
+    if(s.exists){ SETTINGS = {...SETTINGS, ...s.data()}; if(SETTINGS.whatsapp) WHATSAPP = String(SETTINGS.whatsapp); if(SETTINGS.currency) CURRENCY = SETTINGS.currency; }
+  }catch(e){}
+  try{
+    const q = await db.collection("products").get();
+    PRODUCTS = q.docs.map(d => ({id: d.id, ...d.data()})).filter(p => p.active !== false)
+      .sort((a, b) => (a.sort || 0) - (b.sort || 0) || ((a.createdAt && a.createdAt.seconds) || 0) - ((b.createdAt && b.createdAt.seconds) || 0));
+    try{ localStorage.setItem("ep_store_v1", JSON.stringify({p: PRODUCTS, s: SETTINGS})); }catch(e){ try{ localStorage.removeItem("ep_store_v1"); }catch(_){} }
+  }catch(e){ if(PRODUCTS.length) toast("تعذر تحديث العطور الآن. نعرض آخر نسخة محفوظة."); }
+  storeLoaded = true; applySettings(); renderList(); renderCart(); if(productOpen) renderProductPage();
+}
+$("form").addEventListener("submit", guard(async e => {
+  const msg = $("msg"); msg.className = "msg err";
+  if(SETTINGS.storeOpen === false){ msg.textContent = "المتجر متوقف مؤقتًا عن استقبال الطلبات."; return; }
+  if(!storeLoaded){ msg.textContent = "جارٍ تحميل المتجر، حاول بعد لحظة."; return; }
+  const name = $("name").value.trim(), phone = $("phone").value.trim(), addr = $("addr").value.trim(), note = $("note").value.trim();
+  if(!Object.keys(order).length){ msg.textContent = "أضف عطرًا واحدًا على الأقل قبل الإرسال."; return; }
+  if(!name || !phone || !addr){ msg.textContent = "أكمل الاسم ورقم الهاتف والعنوان."; return; }
+  for(const id of Object.keys(order)){
+    const p = PRODUCTS.find(x => x.id == id); if(!p) continue;
+    const s = stockOf(p);
+    if(isOut(p) || (s != null && order[id] > s)){ msg.textContent = "الكمية المتاحة من «" + p.name + "» " + (s ? "هي " + s : "غير متوفرة") + "."; return; }
+  }
+  const methods = activePays(); let pm = null, ref = "";
+  if(methods.length){
+    pm = methods.find(m => m.id === payChoice);
+    if(!pm){ msg.textContent = "اختر طريقة الدفع."; return; }
+    if(pm.type !== "cod"){
+      ref = $("payRef").value.trim();
+      if(!ref){ msg.textContent = "اكتب رقم العملية."; return; }
+      if(!receiptData){ msg.textContent = "ارفع صورة إشعار التحويل."; return; }
+    }
+  }
+  const {subtotal, fee, total} = calc();
+  const items = Object.keys(order).map(id => { const p = PRODUCTS.find(x => x.id == id); return {id: p.id, name: p.name, qty: order[id], price: p.price}; });
+  const code = "ESAM-" + Math.random().toString(36).slice(2, 7).toUpperCase();
+  const loc = (user && profile && profile.lat && addr === (profile.address || "")) ? {lat: profile.lat, lng: profile.lng} : null;
+  const text = ["فاتورة طلب جديد - ESAM PERFUME", "رقم الطلب: " + code, "", ...items.map(i => `- ${i.name} × ${i.qty} = ${fmt(i.price * i.qty)}`), "",
+    fee ? "التوصيل: " + fmt(fee) : null, "الإجمالي: " + fmt(total), "", "الاسم: " + name, "الهاتف: " + phone, "العنوان: " + addr,
+    loc ? "الموقع: " + mapUrl(loc) : null, note ? "ملاحظات: " + note : null,
+    pm ? "" : null, pm ? "طريقة الدفع: " + pm.name : null, (pm && pm.type !== "cod") ? "رقم العملية: " + ref : null,
+    (pm && pm.type !== "cod") ? "إشعار التحويل: تم رفعه في الموقع برقم الطلب " + code : null, (pm && pm.type === "cod") ? "الدفع عند الاستلام" : null].filter(x => x !== null).join("\n");
+  const url = "https://wa.me/" + WHATSAPP + "?text=" + encodeURIComponent(text);
+  let saved = false;
+  if(db){
+    try{
+      const TSV = firebase.firestore.FieldValue.serverTimestamp(), batch = db.batch(), hasReceipt = !!(pm && pm.type !== "cod" && receiptData);
+      batch.set(db.collection("orders").doc(code), {code, items, subtotal, fee, total, name, phone, address: addr, note, lat: loc ? loc.lat : null, lng: loc ? loc.lng : null,
+        uid: user ? user.uid : null, status: "new", createdAt: TSV,
+        ...(pm ? {payMethod: pm.id, payName: pm.name, payType: pm.type === "cod" ? "cod" : "transfer", payRef: ref, hasReceipt, payStatus: hasReceipt ? "pending" : "cod"} : {})});
+      if(hasReceipt) batch.set(db.collection("receipts").doc(code), {img: receiptData, createdAt: TSV});
+      await batch.commit();
+      saved = true;
+    }catch(x){}
+  }
+  if(!saved && pm && pm.type !== "cod"){ msg.textContent = "تعذر إرسال طلبك الآن. تحقق من الاتصال وحاول مرة أخرى."; return; }
+  try{ window.open(url, "_blank"); }catch(x){}
+  Object.keys(order).forEach(k => delete order[k]); checkingOut = false; renderCart(); loadOrders();
+  receiptData = ""; $("payRef").value = ""; $("payFile").value = ""; $("payPrev").hidden = true;
+  const sn = $("sentNote"); sn.hidden = false; sn.className = "note sent";
+  sn.innerHTML = esc(saved ? "تم تسجيل طلبك برقم " + code + ". أرسل الفاتورة عبر واتساب لإتمام الطلب." : "رقم طلبك " + code + ". أرسل الفاتورة عبر واتساب لإتمام الطلب.")
+    + '<br><a class="btn sm" target="_blank" rel="noopener" href="' + esc(url) + '">أرسل الفاتورة عبر واتساب</a>';
+  sheets.cart.scrollTop = 0;
+}));
+const activePays = () => (Array.isArray(SETTINGS.payments) ? SETTINGS.payments : []).filter(m => m && m.active !== false);
+function copyText(s){
+  const fb = () => window.prompt("انسخ الرقم", s);
+  try{ navigator.clipboard.writeText(s).then(() => toast("تم نسخ الرقم"), fb); }catch(e){ fb(); }
+}
+function compressImg(file){
+  return new Promise((res, rej) => {
+    const img = new Image(), url = URL.createObjectURL(file);
+    img.onload = () => {
+      const r = Math.min(1, 1100 / Math.max(img.width, img.height)), c = document.createElement("canvas");
+      c.width = Math.round(img.width * r); c.height = Math.round(img.height * r);
+      c.getContext("2d").drawImage(img, 0, 0, c.width, c.height); URL.revokeObjectURL(url);
+      let q = .75, out = c.toDataURL("image/jpeg", q);
+      while(out.length > 380000 && q > .4){ q -= .1; out = c.toDataURL("image/jpeg", q); }
+      out.length > 380000 ? rej(new Error("big")) : res(out);
+    };
+    img.onerror = () => rej(new Error("bad")); img.src = url;
+  });
+}
+function renderPay(){
+  const ms = activePays(), box = $("payBlock");
+  box.hidden = !ms.length; if(!ms.length) return;
+  if(!ms.find(m => m.id === payChoice)) payChoice = ms.length === 1 ? ms[0].id : null;
+  $("payList").innerHTML = ms.map(m => `<button type="button" class="payopt" data-pay="${esc(m.id)}" aria-pressed="${m.id === payChoice}"><b>${esc(m.name)}</b><span>${m.type === "cod" ? "الدفع عند الاستلام" : "تحويل"}</span></button>`).join("");
+  const m = ms.find(x => x.id === payChoice), info = $("payInfo");
+  info.hidden = !m;
+  if(!m){ $("refLbl").hidden = true; $("rcpLbl").hidden = true; $("payPrev").hidden = true; return; }
+  const cod = m.type === "cod", total = calc().total, note = m.note ? `<p class="sub" style="margin:12px 0">${esc(m.note)}</p>` : "";
+  info.innerHTML = cod
+    ? `<div class="drow"><span>طريقة الدفع</span><span class="v">${esc(m.name)}</span></div><div class="drow"><span>المبلغ عند الاستلام</span><b>${fmt(total)}</b></div>${note}`
+    : `<div class="drow"><span>اسم الحساب</span><span class="v">${esc(m.holder)}</span></div>
+       <div class="drow"><span>رقم الحساب</span><span class="v" dir="ltr">${esc(m.number)} <button class="link" type="button" data-copyacc="${esc(m.id)}">نسخ</button></span></div>
+       <div class="drow"><span>المبلغ المطلوب تحويله</span><b>${fmt(total)}</b></div>${note}`;
+  $("refLbl").hidden = cod; $("rcpLbl").hidden = cod; $("payPrev").hidden = cod || !receiptData;
+}
+const CHEV = '<svg viewBox="0 0 24 24"><path d="M9 6l6 6-6 6"/></svg>';
+const SHARE = '<svg viewBox="0 0 24 24"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><path d="M8.6 13.5l6.8 4M15.4 6.5l-6.8 4"/></svg>';
+function toast(t){ const el = $("toast"); el.textContent = t; el.hidden = false; clearTimeout(toast.t); toast.t = setTimeout(() => el.hidden = true, 2400); }
+function toggleFav(id){
+  favs.has(id) ? favs.delete(id) : favs.add(id); saveFavs(); renderList();
+  const b = $("ppFav"); if(b && productOpen){ b.classList.toggle("on", favs.has(id)); b.setAttribute("aria-pressed", favs.has(id)); }
+}
+function stepQty(dir){
+  const p = PRODUCTS.find(x => x.id === curP); if(!p) return;
+  const s = stockOf(p), cap = s == null ? Infinity : Math.max(1, s);
+  if(dir === "inc" && pq >= cap){ toast("المتاح من هذا العطر " + cap + " فقط"); return; }
+  pq = Math.max(1, Math.min(cap, pq + (dir === "inc" ? 1 : -1))); $("pqv").textContent = pq;
+}
+async function shareProduct(p){
+  const url = location.origin + "/?p=" + encodeURIComponent(p.id);
+  const data = {title: p.name + " | ESAM PERFUME", text: p.name + (p.size ? " - " + p.size : "") + " من ESAM PERFUME", url};
+  if(navigator.share){ try{ await navigator.share(data); return; }catch(e){ if(e && e.name === "AbortError") return; } }
+  try{ await navigator.clipboard.writeText(url); toast("تم نسخ رابط العطر"); }catch(e){ window.prompt("انسخ الرابط", url); }
+}
+function productHTML(p){
+  const img = safeImg(p.image || p.thumb), soft = !p.image && !!p.thumb, out = isOut(p), st = stockOf(p), desc = p.description != null ? p.description : (p.note || "");
+  const notes = [["الافتتاحية", p.notesTop], ["القلب", p.notesHeart], ["القاعدة", p.notesBase]].map(([t, v]) => [t, splitNotes(v)]).filter(([, a]) => a.length);
+  const others = PRODUCTS.filter(x => x.id !== p.id).sort((a, b) => (b.category === p.category) - (a.category === p.category)).slice(0, 4);
+  return `<div class="wrap pp">
+    <div class="pbar"><button class="back" type="button" data-pback>${CHEV}<span>رجوع</span></button>
+      <div class="pact"><button class="ic${favs.has(p.id) ? " on" : ""}" id="ppFav" type="button" data-pfav aria-label="مفضلة" aria-pressed="${favs.has(p.id)}">${HEART}</button>
+      <button class="ic" type="button" data-pshare aria-label="مشاركة رابط العطر">${SHARE}</button></div></div>
+    <div class="pimgbox">${img ? `<img id="ppImg" class="${soft ? "soft" : ""}" src="${img}" alt="${esc(p.name)}" decoding="async">` : '<div class="pph"><img src="logo.png" alt=""></div>'}</div>
+    <div class="pmeta">${p.category ? `<span class="chip">${esc(p.category)}</span>` : ""}${p.size ? `<span class="chip">${esc(p.size)}</span>` : ""}</div>
+    <h1 class="ptitle">${esc(p.name)}</h1>
+    <div class="pprice">${fmt(p.price)}</div>
+    <p class="pstock${out ? " out" : ""}">${out ? "نفد من المخزون" : st != null ? "المتوفر: " + st + " قطعة" : "متوفر"}</p>
+    ${desc ? `<h2 class="ph">الوصف</h2><p class="pdesc">${esc(desc).replace(/\n/g, "<br>")}</p>` : ""}
+    ${notes.length ? `<h2 class="ph">نوتات العطر</h2><div class="notes">${notes.map(([t, a]) => `<div class="nrow"><span class="nt">${t}</span><div class="nl">${a.map(x => `<span class="nchip">${esc(x)}</span>`).join("")}</div></div>`).join("")}</div>` : ""}
+    <div class="buy">${out ? '<button class="btn" type="button" disabled>نفد</button>'
+      : `<div class="qty"><button type="button" data-pq="dec" aria-label="تقليل">−</button><b id="pqv">${pq}</b><button type="button" data-pq="inc" aria-label="زيادة">+</button></div><button class="btn" type="button" data-padd>أضف للطلب</button>`}</div>
+    ${others.length ? `<h2 class="ph">قد يعجبك أيضًا</h2><div class="rels">${others.map(x => { const xi = safeImg(x.thumb || x.image);
+      return `<div class="rel" data-open="${esc(x.id)}" role="link" tabindex="0" aria-label="${esc(x.name)}">${xi ? `<img src="${xi}" alt="" loading="lazy">` : '<div class="rph"></div>'}<b>${esc(x.name)}</b><span>${fmt(x.price)}</span></div>`; }).join("")}</div>` : ""}
+  </div>`;
+}
+const fullCache = {};
+async function loadFull(p){
+  if(!db || p.image || !p.thumb) return;
+  const id = p.id;
+  try{
+    let img = fullCache[id];
+    if(img === undefined){ const s = await db.collection("pimgs").doc(id).get(); img = s.exists ? safeImg(s.data().image) : ""; fullCache[id] = img; }
+    if(img && productOpen && curP === id){ const el = $("ppImg"); if(el){ el.src = img; el.classList.remove("soft"); } }
+  }catch(e){}
+}
+function renderProductPage(){
+  const box = $("productPage"), p = PRODUCTS.find(x => x.id === curP);
+  if(!storeLoaded){ box.innerHTML = '<div class="wrap pp"><p class="empty">جارٍ التحميل...</p></div>'; return; }
+  if(!p){
+    box.innerHTML = '<div class="wrap pp"><div class="pbar"><button class="back" type="button" data-pback>' + CHEV + '<span>رجوع</span></button></div><p class="empty">هذا العطر غير متوفر حاليًا.</p></div>';
+    document.title = "ESAM PERFUME"; return;
+  }
+  box.innerHTML = productHTML(p); document.title = p.name + " | ESAM PERFUME"; loadFull(p);
+}
+function showProduct(id){
+  closeSheet(); productOpen = true; curP = id; pq = 1;
+  $("homeMain").hidden = true; $("productPage").hidden = false;
+  renderProductPage(); window.scrollTo(0, 0); setNav("shop");
+}
+function showHome(){
+  productOpen = false; curP = null; $("homeMain").hidden = false; $("productPage").hidden = true;
+  document.title = BASE_TITLE; window.scrollTo(0, homeScroll || 0);
+}
+function openProduct(id){
+  if(!productOpen) homeScroll = window.scrollY || 0;
+  history.pushState({p: id}, "", "?p=" + encodeURIComponent(id)); showProduct(id);
+}
+function goHome(){ if(location.search) history.pushState({}, "", location.pathname); showHome(); }
+function route(){ const id = new URLSearchParams(location.search).get("p"); id ? showProduct(id) : showHome(); }
+window.addEventListener("popstate", () => {
+  if(ovOpen){
+    closeSheet(); ovEntry = false; setNav(favOnly ? "fav" : "shop");
+    const f = ovAfter; ovAfter = null; if(f) f(); return;
+  }
+  route();
+});
+document.addEventListener("keydown", e => {
+  const c = e.key === "Enter" && e.target.closest ? e.target.closest("[data-open]") : null;
+  if(c && e.target === c) openProduct(c.dataset.open);
+});
+$("payFile").addEventListener("change", async e => {
+  const f = e.target.files && e.target.files[0]; receiptData = ""; $("payPrev").hidden = true; if(!f) return;
+  const m = $("msg"); m.className = "msg"; m.textContent = "جارٍ تجهيز الصورة...";
+  try{ receiptData = await compressImg(f); $("payPrev").src = receiptData; $("payPrev").hidden = false; m.textContent = ""; }
+  catch(x){ m.className = "msg err"; m.textContent = "تعذر استخدام هذه الصورة، جرّب صورة أخرى."; e.target.value = ""; }
+});
+$("fWa").href = "https://wa.me/" + WHATSAPP;
+renderList(); renderCart(); renderAcct();
+loadStore();
+if(new URLSearchParams(location.search).get("p")) route();
+if("serviceWorker" in navigator){ window.addEventListener("load", () => { navigator.serviceWorker.register("/sw.js").catch(() => {}); }); }
+</script>
+</body>
+</html>
